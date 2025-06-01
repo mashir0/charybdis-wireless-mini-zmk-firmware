@@ -17,7 +17,7 @@ layers:
   - {t: A, h: SYM}
   - {t: S, h: LEFT ALT}
   - {t: D, h: LCTRL}
-  - F
+  - {t: F, h: LEFT SHIFT}
   - G
   - H
   - {t: J, h: RIGHT SHIFT}
