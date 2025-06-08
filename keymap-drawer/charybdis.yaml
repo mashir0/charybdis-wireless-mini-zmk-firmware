@@ -91,11 +91,11 @@ layers:
   - ''
   - ''
   - ''
-  - '&detach_session'
-  - '&create_or_attach'
-  - '&next_pane'
-  - '&show_sessions'
-  - '&sync_panes'
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
   - ''
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -103,7 +103,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - ''
-  - HSPLIT
+  - ''
   - LEFT
   - DOWN
   - UP
@@ -115,7 +115,7 @@ layers:
   - {type: held}
   - ''
   - ''
-  - VSPLIT
+  - ''
   - HOME
   - PG DN
   - PG UP
@@ -254,9 +254,9 @@ layers:
   - {t: ▽, type: trans}
   EXTRAS:
   - POWER
-  - SHRUG
-  - LGTM
-  - GIT COMMIT
+  - ''
+  - ''
+  - ''
   - ''
   - BRIGHTNESS INC
   - {t: BT, h: '0'}
