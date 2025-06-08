@@ -9,7 +9,6 @@
 /*-------------------------------------------------------
 * combos
 -------------------------------------------------------*/
-
 / {
     combos {
         compatible = "zmk,combos";
@@ -73,237 +72,72 @@
 /*-------------------------------------------------------
 * macros
 -------------------------------------------------------*/
-
 / {
     macros {
-        v_split: v_split {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(B) &kp PRCNT>;
-        };
-
-        h_split: h_split {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(B) &kp DQT>;
-        };
-
-        detach_session: detach_session {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LC(B) &kp D>;
-        };
-
-        sync_panes: sync_panes {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LC(B) &kp SPACE>;
-        };
-
-        next_pane: next_pane {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LC(B) &kp O>;
-        };
-
-        show_sessions: show_sessions {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LC(B) &kp S>;
-        };
-
-        create_or_attach: create_or_attach {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp T>,
-                <&macro_tap>,
-                <&kp M>,
-                <&macro_tap>,
-                <&kp U>,
-                <&macro_tap>,
-                <&kp X>,
-                <&macro_tap>,
-                <&kp SPC>,
-                <&macro_tap>,
-                <&kp N>,
-                <&macro_tap>,
-                <&kp E>,
-                <&macro_tap>,
-                <&kp W>,
-                <&macro_tap>,
-                <&kp MINUS>,
-                <&macro_tap>,
-                <&kp S>,
-                <&macro_tap>,
-                <&kp E>,
-                <&macro_tap>,
-                <&kp S>,
-                <&macro_tap>,
-                <&kp S>,
-                <&macro_tap>,
-                <&kp I>,
-                <&macro_tap>,
-                <&kp O>,
-                <&macro_tap>,
-                <&kp N>,
-                <&macro_tap>,
-                <&kp SPC>,
-                <&macro_tap>,
-                <&kp MINUS>,
-                <&macro_tap>,
-                <&kp A>,
-                <&macro_tap>,
-                <&kp SPC>,
-                <&macro_tap>,
-                <&kp MINUS>,
-                <&macro_tap>,
-                <&kp S>,
-                <&macro_tap>,
-                <&kp SPC>;
-        };
-
-        shrug: shrug {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <20>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL &kp LSHFT>,
-                <&macro_tap>,
-                <&kp U>,
-                <&macro_release>,
-                <&kp LCTRL &kp LSHFT>,
-                <&macro_tap>,
-                <&kp N0 &kp N0 &kp A &kp F &kp SPC>,
-                <&macro_tap>,
-                <&kp BACKSLASH>,
-                <&macro_tap>,
-                <&kp UNDER>,
-                <&macro_tap>,
-                <&kp LPAR>,
-                <&macro_press>,
-                <&kp LCTRL &kp LSHFT>,
-                <&macro_tap>,
-                <&kp U>,
-                <&macro_release>,
-                <&kp LCTRL &kp LSHFT>,
-                <&macro_tap>,
-                <&kp N3 &kp N0 &kp C &kp N4 &kp SPC>,
-                <&macro_tap>,
-                <&kp RPAR>,
-                <&macro_tap>,
-                <&kp UNDER>,
-                <&macro_tap>,
-                <&kp FSLH>,
-                <&macro_press>,
-                <&kp LCTRL &kp LSHFT>,
-                <&macro_tap>,
-                <&kp U>,
-                <&macro_release>,
-                <&kp LCTRL &kp LSHFT>,
-                <&macro_tap>,
-                <&kp N0 &kp N0 &kp A &kp F &kp SPC>;
-        };
-
-        gcm: gcm {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <20>;
-            bindings =
-                <&macro_tap>,
-                <&kp G &kp I &kp T &kp SPACE &kp C &kp O &kp M &kp M &kp I &kp T &kp SPACE &kp MINUS &kp A &kp M &kp SPACE &kp DQT &kp LS(W) &kp LS(I) &kp LS(P) &kp DQT>;
-        };
-
-        lgtm: lgtm {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <20>;
-            bindings =
-                <&macro_tap>,
-                <&kp LS(L) &kp LS(G) &kp LS(T) &kp LS(M) &kp SPACE &kp MINUS &kp SPACE &kp LS(A) &kp P &kp P &kp R &kp O &kp V &kp E &kp D &kp EXCL>;
-        };
-
+        // 前のコマンドをsudoで実行: "sudo !!" + Enter
         sudo: sudo {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <20>;
             bindings =
-                <&macro_tap>,
-                <&kp S &kp U &kp D &kp O>,
-                <&macro_tap>,
-                <&kp SPACE>,
-                <&macro_tap>,
-                <&kp EXCL &kp EXCL>,
-                <&macro_tap>,
-                <&kp RET>;
+                <&macro_tap>, <&kp S &kp U &kp D &kp O>,
+                <&macro_tap>, <&kp SPACE>,
+                <&macro_tap>, <&kp EXCL &kp EXCL>,
+                <&macro_tap>, <&kp RET>;
         };
 
+        // クリップボード履歴表示 (Cmd+V)
         clip_hist: clip_hist {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LGUI>,
-                <&macro_tap>,
-                <&kp V>,
-                <&macro_release>,
-                <&kp LGUI>;
+                <&macro_press>, <&kp LGUI>,
+                <&macro_tap>, <&kp V>,
+                <&macro_release>, <&kp LGUI>;
         };
 
+        // 新しいディレクトリ作成 (Ctrl+Shift+N)
         new_dir: new_dir {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LCTRL &kp LSHFT>,
-                <&macro_tap>,
-                <&kp N>,
-                <&macro_release>,
-                <&kp LCTRL &kp LSHFT>;
+                <&macro_press>, <&kp LCTRL &kp LSHFT>,
+                <&macro_tap>, <&kp N>,
+                <&macro_release>, <&kp LCTRL &kp LSHFT>;
         };
 
+        // バッククォート入力補助: `` + 左矢印（Markdownコードブロック用）
         grave_macro: grave_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_tap>,
-                <&kp GRAVE>,
-                <&macro_tap>,
-                <&kp GRAVE>,
-                <&macro_tap>,
-                <&kp LEFT_ARROW>;
+                <&macro_tap>, <&kp GRAVE>,
+                <&macro_tap>, <&kp GRAVE>,
+                <&macro_tap>, <&kp LEFT_ARROW>;
         };
 
+        // スペース付きハイフン: " - "（リスト記号、演算子用）
         minus_macro: minus_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_tap>,
-                <&kp SPACE>,
-                <&macro_tap>,
-                <&kp MINUS>,
-                <&macro_tap>,
-                <&kp SPACE>;
+                <&macro_tap>, <&kp SPACE>,
+                <&macro_tap>, <&kp MINUS>,
+                <&macro_tap>, <&kp SPACE>;
         };
 
+        // スペース付きイコール: " = "（代入演算子用）
         equals_macro: equals_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_tap>,
-                <&kp SPACE>,
-                <&macro_tap>,
-                <&kp EQUAL>,
-                <&macro_tap>,
-                <&kp SPACE>;
+                <&macro_tap>, <&kp SPACE>,
+                <&macro_tap>, <&kp EQUAL>,
+                <&macro_tap>, <&kp SPACE>;
         };
 
+        // ホームディレクトリパス: "~/"（ファイルパス入力用）
         home_macro: home_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -318,17 +152,18 @@
 
 / {
     behaviors {
+        // ホームローモッド（基本）: キーを押し続けると修飾キー、タップすると通常キー
         hm: homerow_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <175>; // triggers the hold behavior when the tapping-term-ms has expired
-            quick-tap-ms = <150>; // If you press a tapped hold-tap again within quick-tap-ms milliseconds of the first press, it will always trigger the tap behavior.
-            require-prior-idle-ms = <185>; // like quick-tap-ms however it will apply for any non-modifier key pressed before it
-            bindings = <&kp>, <&kp>;
-  // hold, tap
+            tapping-term-ms = <175>; // この時間以上押し続けると修飾キーとして動作
+            quick-tap-ms = <150>; // この時間内に再度タップすると常に通常キーとして動作
+            require-prior-idle-ms = <185>; // 前のキーからこの時間以上経過している必要がある
+            bindings = <&kp>, <&kp>;  // hold, tap
         };
 
+        // 右側ホームローモッド: 右側のキーに特化した設定
         hm_right: homerow_mod_right {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -343,6 +178,7 @@
             hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;
         };
 
+        // 左側ホームローモッド: 左側のキーに特化した設定
         hm_left: homerow_mod_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -357,29 +193,30 @@
             hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 39 40>;
         };
 
+        // スクロール/カーソル切り替え: タップでESC、ホールドでレイヤー9
         td_cursor: td_scroll_or_cursor {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&lt 9 ESC>, <&mo 8>;
- // hold, tap, double_tap
+            bindings = <&lt 9 ESC>, <&mo 8>; // hold, tap, double_tap
         };
 
+        // スペースキー拡張: タップでスペース、ホールドでレイヤー2
         td_space: td_space {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <85>;
-            bindings = <&lt 2 SPACE>, <&kp SPACE>;
- // hold, tap, double_tap
+            bindings = <&lt 2 SPACE>, <&kp SPACE>; // hold, tap, double_tap
         };
 
+        // バックスペース拡張: タップでバックスペース、ホールドでレイヤー1
         td_bs: td_bs {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <85>;
-            bindings = <&lt 1 BACKSPACE>, <&kp BACKSPACE>;
- // hold, tap, double_tap
+            bindings = <&lt 1 BACKSPACE>, <&kp BACKSPACE>; // hold, tap, double_tap
         };
 
+        // 2レイヤー切り替え: ホールドでモーメンタリ、タップでトグル
         httl: ht_two_layers {
             compatible = "zmk,behavior-hold-tap";
             bindings = <&mo>, <&to>;
@@ -389,45 +226,50 @@
             tapping-term-ms = <125>;
         };
 
+        // レイヤー切り替え: タップでレイヤー0、ダブルタップでレイヤー5、トリプルタップでレイヤー4
         td_layers: td_layer_swap {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&to 0>, <&to 5>, <&to 4>;
- // tap, double_tap, tripple_tap
+            bindings = <&to 0>, <&to 5>, <&to 4>; // tap, double_tap, tripple_tap
         };
 
+        // クリック/スクロール切り替え: タップで右クリック、ホールドでレイヤー9
         td_clk_scrl: td_click_or_scroll {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
-            bindings = <&mkp RCLK>, <&mo 9>;
-  // tap/hold, double_tap
+            bindings = <&mkp RCLK>, <&mo 9>;  // tap/hold, double_tap
         };
 
+        // ベース/エクストラ切り替え: タップでレイヤー6、ダブルタップでレイヤー0
         td_bore: BASE_or_EXTRA {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             bindings = <&mo 6>, <&to 0>;
         };
 
+        // バッククォート拡張: タップでバッククォート、ダブルタップでマクロ
         td_grave: DoubleTap_Grave {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             bindings = <&kp GRAVE>, <&grave_macro>;
         };
 
+        // ハイフン拡張: タップでハイフン、ダブルタップでスペース付きハイフン
         td_hyphen: DoubleTap_Hyphen {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             bindings = <&kp MINUS>, <&minus_macro>;
         };
 
+        // イコール拡張: タップでイコール、ダブルタップでスペース付きイコール
         td_equals: DoubleTap_Equals {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             bindings = <&kp EQUAL>, <&equals_macro>;
         };
 
+        // スラッシュ拡張: タップでスラッシュ、ダブルタップでホームディレクトリパス
         td_home: DoubleTap_Home {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
