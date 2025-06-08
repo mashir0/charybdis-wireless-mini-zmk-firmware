@@ -1,7 +1,7 @@
 layout: {zmk_keyboard: charybdis}
 layers:
   BASE:
-  - ESCAPE
+  - {t: ESCAPE, h: EXTRAS}
   - Q
   - {t: W, h: MOUSE}
   - E
@@ -28,7 +28,7 @@ layers:
   - {t: SEARCH, h: LEFT SHIFT}
   - {t: Z, h: BASE}
   - {t: X, h: NUM}
-  - {t: C, h: NAV}
+  - {t: C, h: FUNCTION}
   - {t: V, h: SYM}
   - B
   - N
@@ -37,11 +37,11 @@ layers:
   - R CLK
   - SCRL SLOW
   - DOWN
-  - LEFT ALT
-  - LEFT GUI
-  - SPACE
+  - {t: LEFT ALT, h: SYM}
+  - {t: Gui+ LGUI, h: NUM}
+  - {t: SPACE, h: NUM}
   - {t: RETURN, h: MOUSE}
-  - BACK SPACE
+  - {t: BACK SPACE, h: MEDIA}
   NUM:
   - {t: ▽, type: trans}
   - ''
@@ -50,11 +50,11 @@ layers:
   - ''
   - ''
   - '*'
-  - {t: '7', h: F7}
-  - {t: '8', h: F8}
-  - {t: '9', h: F9}
-  - F10
-  - ''
+  - '7'
+  - {t: '8', h: toggle}
+  - '9'
+  - +
+  - '*'
   - {t: ▽, type: trans}
   - ''
   - ''
@@ -62,11 +62,11 @@ layers:
   - ''
   - ''
   - '-'
-  - {t: '4', h: F4}
-  - {t: '5', h: F5}
-  - {t: '6', h: F6}
-  - {t: +, h: F11}
-  - {t: ▽, type: trans}
+  - '4'
+  - '5'
+  - '6'
+  - '-'
+  - /
   - ''
   - ''
   - {type: held}
@@ -74,17 +74,17 @@ layers:
   - BACK SPACE
   - SPACE
   - '='
-  - {t: '1', h: F1}
-  - {t: '2', h: F2}
-  - {t: '3', h: F3}
-  - {t: /, h: DEV TOOLS}
-  - ''
-  - ''
-  - ''
-  - {t: ▽, type: trans}
+  - '1'
+  - '2'
+  - '3'
   - .
-  - '0'
-  NAV:
+  - '='
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  FUNCTION:
   - ''
   - ''
   - ''
@@ -253,12 +253,12 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   EXTRAS:
-  - POWER
+  - {t: POWER, type: held}
   - ''
   - ''
   - ''
-  - ''
-  - ''
+  - OUT BLE
+  - OUT USB
   - {t: BT, h: '0'}
   - {t: BT, h: '1'}
   - {t: BT, h: '2'}
@@ -269,7 +269,7 @@ layers:
   - '&sudo'
   - ''
   - ''
-  - {type: held}
+  - ''
   - ''
   - ''
   - ''
