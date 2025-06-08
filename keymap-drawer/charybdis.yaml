@@ -3,7 +3,7 @@ layers:
   BASE:
   - ESCAPE
   - Q
-  - W
+  - {t: W, h: MOUSE}
   - E
   - R
   - T
@@ -16,8 +16,8 @@ layers:
   - {t: TAB, h: LCTRL}
   - A
   - {t: S, h: GAME}
-  - D
-  - F
+  - {t: D, h: MEDIA}
+  - {t: F, h: EXTRAS}
   - G
   - H
   - J
@@ -91,11 +91,11 @@ layers:
   - ''
   - ''
   - ''
-  - '&detach_session'
-  - '&create_or_attach'
-  - '&next_pane'
-  - '&show_sessions'
-  - '&sync_panes'
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
   - ''
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -103,7 +103,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - ''
-  - HSPLIT
+  - ''
   - LEFT
   - DOWN
   - UP
@@ -115,7 +115,7 @@ layers:
   - {type: held}
   - ''
   - ''
-  - VSPLIT
+  - ''
   - HOME
   - PG DN
   - PG UP
@@ -210,31 +210,31 @@ layers:
   - LEFT ALT
   - ''
   - ''
-  PHOTOS:
+  MEDIA:
   - {t: ▽, type: trans}
   - TAG Z
   - TAG E
   - TAG A
   - TAG S
   - TAG B
+  - BRIGHTNESS INC
   - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - {t: ▽, type: trans}
+  - PREVIOUS
+  - PLAY PAUSE
+  - STOP
+  - NEXT
   - FIT
   - LEFT
   - DOWN
-  - UP
+  - {t: UP, type: held}
   - RIGHT
   - LCTRL
+  - BRIGHTNESS DEC
   - ''
   - ''
-  - ''
-  - ''
-  - ''
-  - {t: ▽, type: trans}
+  - MUTE
+  - VOLUME DOWN
+  - VOLUME UP
   - SHRED
   - SHOW TAGS
   - REJECT
@@ -254,11 +254,11 @@ layers:
   - {t: ▽, type: trans}
   EXTRAS:
   - POWER
-  - SHRUG
-  - LGTM
-  - GIT COMMIT
   - ''
-  - BRIGHTNESS INC
+  - ''
+  - ''
+  - ''
+  - ''
   - {t: BT, h: '0'}
   - {t: BT, h: '1'}
   - {t: BT, h: '2'}
@@ -269,25 +269,25 @@ layers:
   - '&sudo'
   - ''
   - ''
+  - {type: held}
   - ''
-  - BRIGHTNESS DEC
   - ''
-  - PREVIOUS
-  - PLAY PAUSE
-  - STOP
-  - NEXT
+  - ''
+  - ''
+  - ''
+  - ''
   - ''
   - LOCK
   - ''
   - ''
   - ''
   - ''
+  - BOOT LDR
+  - BOOT LDR
   - ''
-  - NEW DIR
-  - MUTE
-  - VOLUME DOWN
-  - VOLUME UP
-  - PRINT SCREEN
+  - ''
+  - ''
+  - ''
   - ZMK Studio
   - ''
   - ''
@@ -297,7 +297,7 @@ layers:
   MOUSE:
   - ''
   - WHEEL L
-  - WHEEL D
+  - {t: WHEEL D, type: held}
   - MOVE UP
   - WHEEL U
   - WHEEL R
@@ -334,7 +334,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: RETURN, type: held}
+  - RETURN
   - {t: ▽, type: trans}
   SLOW:
   - {t: ▽, type: trans}
