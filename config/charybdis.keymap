@@ -329,6 +329,22 @@
             #binding-cells = <0>;
             bindings = <&kp FSLH>, <&home_macro>;
         };
+
+        my_gui_func: my_gui_func {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_GUI>, <&lt 2 LEFT_GUI>;
+
+            label = "MY_GUI_FUNC";
+        };
+
+        my_alt_mouse: my_alt_mouse {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT>, <&lt 2 LEFT_ALT>;
+
+            label = "MY_ALT_MOUSE";
+        };
     };
 };
 
@@ -432,10 +448,10 @@
 
         BASE {
             bindings = <
-&lt 6 ESCAPE                     &kp Q    &lt 7 W  &kp E           &kp R           &kp T          &kp Y         &kp U            &kp I      &kp O      &kp P       &kp UP_ARROW
-&hm_left LCTRL TAB               &kp A    &lt 4 S  &lt 5 D         &lt 6 F         &kp G          &kp H         &kp J            &kp K      &kp L      &kp LEFT    &kp RIGHT
-&hm_left LEFT_SHIFT C_AC_SEARCH  &lt 0 Z  &lt 1 X  &lt 2 C         &lt 3 V         &kp B          &kp N         &kp M            &mkp LCLK  &mkp RCLK  &td_cursor  &kp DOWN
-                                                   &lt 7 LEFT_ALT  &lt 2 LG(LGUI)  &lt 1 SPACE    &lt 3 RETURN  &lt 5 BACKSPACE
+&lt 6 ESCAPE                     &kp Q    &lt 7 W  &kp E          &kp R         &kp T          &kp Y         &kp U            &kp I      &kp O      &kp P       &kp UP_ARROW
+&hm_left LCTRL TAB               &kp A    &lt 4 S  &lt 5 D        &lt 6 F       &kp G          &kp H         &kp J            &kp K      &kp L      &kp LEFT    &kp RIGHT
+&hm_left LEFT_SHIFT C_AC_SEARCH  &lt 0 Z  &lt 1 X  &lt 2 C        &lt 3 V       &kp B          &kp N         &kp M            &mkp LCLK  &mkp RCLK  &td_cursor  &kp DOWN
+                                                   &my_alt_mouse  &my_gui_func  &lt 1 SPACE    &lt 3 RETURN  &lt 5 BACKSPACE
             >;
         };
 

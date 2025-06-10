@@ -37,8 +37,8 @@ layers:
   - R CLK
   - SCRL SLOW
   - DOWN
-  - {t: LEFT ALT, h: MOUSE}
-  - {t: Gui+ LGUI, h: FUNCTION}
+  - '&my_alt_mouse'
+  - '&my_gui_func'
   - {t: SPACE, h: NUM}
   - {t: RETURN, h: SYM}
   - {t: BACK SPACE, h: MEDIA}
