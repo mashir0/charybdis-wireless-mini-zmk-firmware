@@ -9,6 +9,7 @@
 /*-------------------------------------------------------
 * combos
 -------------------------------------------------------*/
+
 / {
     combos {
         compatible = "zmk,combos";
@@ -72,72 +73,99 @@
 /*-------------------------------------------------------
 * macros
 -------------------------------------------------------*/
+
 / {
     macros {
         // 前のコマンドをsudoで実行: "sudo !!" + Enter
+
         sudo: sudo {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <20>;
             bindings =
-                <&macro_tap>, <&kp S &kp U &kp D &kp O>,
-                <&macro_tap>, <&kp SPACE>,
-                <&macro_tap>, <&kp EXCL &kp EXCL>,
-                <&macro_tap>, <&kp RET>;
+                <&macro_tap>,
+                <&kp S &kp U &kp D &kp O>,
+                <&macro_tap>,
+                <&kp SPACE>,
+                <&macro_tap>,
+                <&kp EXCL &kp EXCL>,
+                <&macro_tap>,
+                <&kp RET>;
         };
 
         // クリップボード履歴表示 (Cmd+V)
+
         clip_hist: clip_hist {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>, <&kp LGUI>,
-                <&macro_tap>, <&kp V>,
-                <&macro_release>, <&kp LGUI>;
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&kp V>,
+                <&macro_release>,
+                <&kp LGUI>;
         };
 
         // 新しいディレクトリ作成 (Ctrl+Shift+N)
+
         new_dir: new_dir {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>, <&kp LCTRL &kp LSHFT>,
-                <&macro_tap>, <&kp N>,
-                <&macro_release>, <&kp LCTRL &kp LSHFT>;
+                <&macro_press>,
+                <&kp LCTRL &kp LSHFT>,
+                <&macro_tap>,
+                <&kp N>,
+                <&macro_release>,
+                <&kp LCTRL &kp LSHFT>;
         };
 
         // バッククォート入力補助: `` + 左矢印（Markdownコードブロック用）
+
         grave_macro: grave_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_tap>, <&kp GRAVE>,
-                <&macro_tap>, <&kp GRAVE>,
-                <&macro_tap>, <&kp LEFT_ARROW>;
+                <&macro_tap>,
+                <&kp GRAVE>,
+                <&macro_tap>,
+                <&kp GRAVE>,
+                <&macro_tap>,
+                <&kp LEFT_ARROW>;
         };
 
         // スペース付きハイフン: " - "（リスト記号、演算子用）
+
         minus_macro: minus_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_tap>, <&kp SPACE>,
-                <&macro_tap>, <&kp MINUS>,
-                <&macro_tap>, <&kp SPACE>;
+                <&macro_tap>,
+                <&kp SPACE>,
+                <&macro_tap>,
+                <&kp MINUS>,
+                <&macro_tap>,
+                <&kp SPACE>;
         };
 
         // スペース付きイコール: " = "（代入演算子用）
+
         equals_macro: equals_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_tap>, <&kp SPACE>,
-                <&macro_tap>, <&kp EQUAL>,
-                <&macro_tap>, <&kp SPACE>;
+                <&macro_tap>,
+                <&kp SPACE>,
+                <&macro_tap>,
+                <&kp EQUAL>,
+                <&macro_tap>,
+                <&kp SPACE>;
         };
 
         // ホームディレクトリパス: "~/"（ファイルパス入力用）
+
         home_macro: home_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -153,6 +181,7 @@
 / {
     behaviors {
         // ホームローモッド（基本）: キーを押し続けると修飾キー、タップすると通常キー
+
         hm: homerow_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -160,10 +189,13 @@
             tapping-term-ms = <175>; // この時間以上押し続けると修飾キーとして動作
             quick-tap-ms = <150>; // この時間内に再度タップすると常に通常キーとして動作
             require-prior-idle-ms = <185>; // 前のキーからこの時間以上経過している必要がある
-            bindings = <&kp>, <&kp>;  // hold, tap
+            bindings = <&kp>, <&kp>;
+
+            // hold, tap
         };
 
         // 右側ホームローモッド: 右側のキーに特化した設定
+
         hm_right: homerow_mod_right {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -179,6 +211,7 @@
         };
 
         // 左側ホームローモッド: 左側のキーに特化した設定
+
         hm_left: homerow_mod_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -194,29 +227,39 @@
         };
 
         // スクロール/カーソル切り替え: タップでESC、ホールドでレイヤー9
+
         td_cursor: td_scroll_or_cursor {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&lt 9 ESC>, <&mo 8>; // hold, tap, double_tap
+            bindings = <&lt 9 ESC>, <&mo 8>;
+
+            // hold, tap, double_tap
         };
 
         // スペースキー拡張: タップでスペース、ホールドでレイヤー2
+
         td_space: td_space {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <85>;
-            bindings = <&lt 2 SPACE>, <&kp SPACE>; // hold, tap, double_tap
+            bindings = <&lt 2 SPACE>, <&kp SPACE>;
+
+            // hold, tap, double_tap
         };
 
         // バックスペース拡張: タップでバックスペース、ホールドでレイヤー1
+
         td_bs: td_bs {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <85>;
-            bindings = <&lt 1 BACKSPACE>, <&kp BACKSPACE>; // hold, tap, double_tap
+            bindings = <&lt 1 BACKSPACE>, <&kp BACKSPACE>;
+
+            // hold, tap, double_tap
         };
 
         // 2レイヤー切り替え: ホールドでモーメンタリ、タップでトグル
+
         httl: ht_two_layers {
             compatible = "zmk,behavior-hold-tap";
             bindings = <&mo>, <&to>;
@@ -227,21 +270,28 @@
         };
 
         // レイヤー切り替え: タップでレイヤー0、ダブルタップでレイヤー5、トリプルタップでレイヤー4
+
         td_layers: td_layer_swap {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&to 0>, <&to 5>, <&to 4>; // tap, double_tap, tripple_tap
+            bindings = <&to 0>, <&to 5>, <&to 4>;
+
+            // tap, double_tap, tripple_tap
         };
 
         // クリック/スクロール切り替え: タップで右クリック、ホールドでレイヤー9
+
         td_clk_scrl: td_click_or_scroll {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
-            bindings = <&mkp RCLK>, <&mo 9>;  // tap/hold, double_tap
+            bindings = <&mkp RCLK>, <&mo 9>;
+
+            // tap/hold, double_tap
         };
 
         // ベース/エクストラ切り替え: タップでレイヤー6、ダブルタップでレイヤー0
+
         td_bore: BASE_or_EXTRA {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -249,6 +299,7 @@
         };
 
         // バッククォート拡張: タップでバッククォート、ダブルタップでマクロ
+
         td_grave: DoubleTap_Grave {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -256,6 +307,7 @@
         };
 
         // ハイフン拡張: タップでハイフン、ダブルタップでスペース付きハイフン
+
         td_hyphen: DoubleTap_Hyphen {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -263,6 +315,7 @@
         };
 
         // イコール拡張: タップでイコール、ダブルタップでスペース付きイコール
+
         td_equals: DoubleTap_Equals {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -270,10 +323,27 @@
         };
 
         // スラッシュ拡張: タップでスラッシュ、ダブルタップでホームディレクトリパス
+
         td_home: DoubleTap_Home {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             bindings = <&kp FSLH>, <&home_macro>;
+        };
+
+        mgui_func: mgui_func {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_GUI>, <&lt 2 LEFT_GUI>;
+
+            label = "MGUI_FUNC";
+        };
+
+        malt_ws: malt_ws {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT>, <&lt 4 LEFT_ALT>;
+
+            label = "MALT_WS";
         };
     };
 };
@@ -284,6 +354,7 @@
 
 / {
     /* マウスの速度設定 Layer 0, 2, 7 */
+
     trackball_listener {
         compatible = "zmk,input-behavior-listener";
         device = <&vtrackball>;
@@ -291,9 +362,10 @@
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
-        
+
         // マウスの速度設定 multiplier/divisor
         // scale-multiplier = <4>;
+
         scale-multiplier = <3>;
         scale-divisor = <5>;
 
@@ -301,6 +373,7 @@
     };
 
     /* マウスを遅くするモード Layer 8 */
+
     trackball_snipe_listener {
         compatible = "zmk,input-behavior-listener";
         device = <&vtrackball>;
@@ -310,11 +383,13 @@
         y-input-code = <INPUT_REL_Y>;
 
         // マウスの速度設定 multiplier/divisor
+
         scale-multiplier = <1>;
         scale-divisor = <6>;
     };
 
     /* マウス 縦スクロールモード Layer 9 */
+
     trackball_scroll_listener {
         compatible = "zmk,input-behavior-listener";
         device = <&vtrackball>;
@@ -323,12 +398,15 @@
         x-input-code = <INPUT_REL_MISC>;
         y-input-code = <INPUT_REL_WHEEL>;
         y-invert;
+
         // bindings = <&ib_wheel_scaler 1 14>;
+
         bindings = <&ib_wheel_scaler 1 28>;
     };
 
     /* define a resolution down scaler only for INPUT_REL_WHEEL */
     /* マウススクロールモード */
+
     ib_wheel_scaler: ib_wheel_scaler {
         compatible = "zmk,input-behavior-scaler";
         #binding-cells = <2>;
@@ -338,6 +416,7 @@
 
     /* adjust cooldown waiting period for mouse key layer after activated */
     /* マウスキーのレイヤー切り替え */
+
     ib_toggle_layer: ib_toggle_layer {
         compatible = "zmk,input-behavior-tog-layer";
         #binding-cells = <1>;
@@ -369,72 +448,73 @@
 
         BASE {
             bindings = <
-&kp ESCAPE                       &kp Q    &lt 7 W  &kp E         &kp R         &kp T        &kp Y         &kp U          &kp I      &kp O      &kp P       &kp UP_ARROW
-&hm_left LCTRL TAB               &kp A    &lt 4 S  &lt 5 D       &lt 6 F       &kp G        &kp H         &kp J          &kp K      &kp L      &kp LEFT    &kp RIGHT
-&hm_left LEFT_SHIFT C_AC_SEARCH  &lt 0 Z  &lt 1 X  &lt 2 C       &lt 3 V       &kp B        &kp N         &kp M          &mkp LCLK  &mkp RCLK  &td_cursor  &kp DOWN
-                                                   &kp LEFT_ALT  &kp LEFT_GUI  &kp SPACE    &lt 7 RETURN  &kp BACKSPACE
+&lt 6 ESCAPE                     &kp Q    &lt 7 W  &kp E     &kp R       &kp T          &kp Y         &kp U            &kp I      &kp O       &kp P          &kp MINUS
+&hm_left LCTRL TAB               &kp A    &lt 4 S  &lt 5 D   &lt 6 F     &kp G          &kp H         &kp J            &kp K      &kp L       &kp SEMICOLON  &kp APOSTROPHE
+&hm_left LEFT_SHIFT C_AC_SEARCH  &lt 0 Z  &lt 1 X  &lt 2 C   &lt 3 V     &kp B          &kp N         &kp M            &kp COMMA  &kp PERIOD  &lt 7 SLASH    &kp GRAVE
+                                                   &malt_ws  &mgui_func  &lt 1 SPACE    &lt 3 RETURN  &lt 5 BACKSPACE
             >;
         };
 
         NUM {
             bindings = <
-&trans  &none  &none  &none  &none          &none        &kp ASTRK   &hm F7 N7  &hm F8 N8  &hm F9 N9  &kp F10        &none
-&trans  &none  &none  &none  &none          &none        &kp MINUS   &hm F4 N4  &hm F5 N5  &hm F6 N6  &hm F11 PLUS   &trans
-&none   &none  &none  &none  &kp BACKSPACE  &kp SPACE    &td_equals  &hm F1 N1  &hm F2 N2  &hm F3 N3  &hm F12 SLASH  &none
-                      &none  &none          &trans       &kp DOT     &kp N0
+&trans  &none  &none  &none   &none          &none        &kp ASTRK  &kp NUMBER_7  &kt N8        &kp N9        &kp PLUS   &kp ASTRK
+&trans  &none  &none  &none   &none          &none        &kp MINUS  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS  &kp SLASH
+&none   &none  &none  &none   &kp BACKSPACE  &kp SPACE    &kp N0     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp DOT    &td_equals
+                      &trans  &trans         &trans       &trans     &trans
             >;
         };
 
-        NAV {
+        FUNCTION {
             bindings = <
-&none   &none   &none   &none   &none   &none     &none         &none              &none       &none     &none            &none
-&trans  &trans  &trans  &trans  &trans  &none     &none         &kp LEFT_ARROW     &kp DOWN    &kp UP    &kp RIGHT_ARROW  &none
-&none   &none   &none   &none   &none   &none     &none         &kp HOME           &kp PG_DN   &kp PG_UP &kp END          &none
-                        &none   &none   &trans    &trans        &trans
+&none   &none   &kp HOME  &kp UP_ARROW    &kp END    &none     &none   &kp F7  &kp F8  &kp F9  &kp F10  &none
+&trans  &trans  &kp LEFT  &kp DOWN_ARROW  &kp RIGHT  &none     &none   &kp F4  &kp F5  &kp F6  &kp F11  &none
+&none   &none   &none     &none           &none      &none     &none   &kp F1  &kp F2  &kp F3  &kp F12  &none
+                          &none           &none      &trans    &trans  &trans
             >;
         };
 
         SYM {
             bindings = <
-&none  &none  &none  &none   &none   &none     &kp ASTRK    &kp AMPS        &kp LEFT_BRACE  &kp DLLR  &td_grave  &kp EXCL
-&none  &none  &none  &none   &trans  &none     &td_hyphen   &kp SEMICOLON   &kp LPAR        &kp LBKT  &kp PLUS   &kp PIPE
-&none  &none  &none  &none   &none   &none     &kp AT_SIGN  &kp UNDERSCORE  &kp LT          &kp HASH  &kp PRCNT  &kp BSLH
-                     &trans  &trans  &trans    &trans       &trans
+&none  &none  &none  &none   &none   &none     &none       &kp AMPS    &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp EQUAL
+&none  &none  &none  &none   &trans  &none     &td_hyphen  &kp DOLLAR  &kp PERCENT   &kp CARET             &kp LEFT_BRACKET       &kp RIGHT_BRACKET
+&none  &none  &none  &none   &none   &none     &none       &kp EXCL    &kp AT        &kp HASH              &kp BACKSLASH          &kp BSLH
+                     &trans  &trans  &trans    &trans      &trans
             >;
         };
 
-        GAME {
+        WORKSPACE {
             bindings = <
-&kp N1  &kp TAB    &kp Q  &kp W  &kp E      &kp R           &none  &none  &none  &none  &none  &trans
-&kp N2  &kp LCTRL  &kp A  &kp S  &kp D      &kp F           &none  &none  &none  &none  &none  &none
-&kp N3  &kp LSHFT  &kp Z  &kp X  &kp C      &kp V           &none  &none  &none  &none  &none  &none
-                          &none  &kp SPACE  &kp LEFT_ALT    &none  &none
+&trans  &none  &none         &kp LC(UP)    &none          &none     &none  &none         &kp RC(UP)    &none          &none  &none
+&trans  &none  &kp LC(LEFT)  &kp LC(DOWN)  &kp LC(RIGHT)  &none     &none  &kp RC(LEFT)  &kp RC(DOWN)  &kp RC(RIGHT)  &none  &none
+&trans  &none  &none         &none         &none          &none     &none  &none         &none         &none          &none  &none
+                             &trans        &trans         &trans    &none  &none
             >;
         };
 
         MEDIA {
             bindings = <
-&trans          &kp LA(LC(LS(Z)))  &kp LA(LC(LS(E)))  &kp LA(LC(LS(A)))  &kp LA(LC(LS(S)))  &kp LA(LC(LS(B)))    &kp C_BRIGHTNESS_INC  &none   &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_STOP         &kp C_NEXT       
-&kp LC(LA(E))   &kp LEFT           &kp DOWN           &kp UP             &kp RIGHT          &kp LCTRL            &kp C_BRIGHTNESS_DEC  &none   &none           &kp K_MUTE        &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  
-&kp LS(DELETE)  &kp LA(LS(A))      &kp LA(KP_N1)      &kp LA(KP_N2)      &kp LA(KP_N3)      &none                &none                 &none   &none           &none             &none              &none
-                                                      &trans             &trans             &trans               &trans  &trans
-            >;};
+&trans          &kp LA(LC(LS(Z)))  &kp LA(LC(LS(E)))  &kp LA(LC(LS(A)))  &kp LA(LC(LS(S)))  &kp LA(LC(LS(B)))    &kp C_BRIGHTNESS_INC  &none     &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_STOP         &kp C_NEXT
+&kp LC(LA(E))   &kp LEFT           &kp DOWN           &kp UP             &kp RIGHT          &kp LCTRL            &kp C_BRIGHTNESS_DEC  &none     &kp UP_ARROW    &kp K_MUTE        &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
+&kp LS(DELETE)  &kp LA(LS(A))      &kp LA(KP_N1)      &kp LA(KP_N2)      &kp LA(KP_N3)      &none                &none                 &kp LEFT  &kp DOWN        &kp RIGHT         &none              &none
+                                                      &trans             &trans             &trans               &trans                &trans
+            >;
+        };
 
         EXTRAS {
             bindings = <
-&kp C_POWER      &none   &none  &none  &none  &none         &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2 &bt BT_SEL 3  &out OUT_TOG  &bt BT_CLR
-&kp C_SLEEP      &sudo   &none  &none  &none  &none         &none         &none         &none        &none         &none         &none
-&kp C_AL_COFFEE  &none   &none  &none  &none  &bootloader   &bootloader   &none         &none        &none         &none         &studio_unlock
-                                &none  &none  &none         &none         &none
+&kp C_POWER      &none  &none  &none  &out OUT_BLE  &out OUT_USB    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &out OUT_TOG  &bt BT_CLR
+&kp C_SLEEP      &sudo  &none  &none  &none         &none           &none         &none         &none         &none         &none         &none
+&kp C_AL_COFFEE  &none  &none  &none  &none         &bootloader     &bootloader   &none         &none         &none         &none         &studio_unlock
+                               &none  &none         &none           &none         &none
             >;
         };
 
         MOUSE {
             bindings = <
-&none    &msc MOVE_LEFT  &msc MOVE_UP    &mmv MOVE_UP    &msc MOVE_DOWN   &msc MOVE_RIGHT    &none       &none            &none      &none         &none     &none
-&kp TAB  &mkp MB4        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp MB5           &none       &kp RIGHT_SHIFT  &kp RCTRL  &kp LEFT_ALT  &kp LCMD  &none
-&none    &kp C_AC_UNDO   &kp C_AC_CUT    &kp C_AC_COPY   &kp C_AC_PASTE   &mkp MCLK          &none       &none            &none      &none         &none     &none
-                                         &trans          &trans           &trans             &kp RETURN  &trans
+&trans  &msc MOVE_LEFT  &msc MOVE_UP    &mmv MOVE_UP    &msc MOVE_DOWN   &msc MOVE_RIGHT    &none   &kp HOME   &kp UP     &kp END     &none  &none
+&trans  &mkp MB4        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp MB5           &none   &kp LEFT   &kp DOWN   &kp RIGHT   &none  &none
+&trans  &kp C_AC_UNDO   &kp C_AC_CUT    &kp C_AC_COPY   &kp C_AC_PASTE   &mkp MCLK          &none   &mkp LCLK  &mkp RCLK  &td_cursor  &none  &none
+                                        &trans          &trans           &trans             &trans  &trans
             >;
         };
 
