@@ -38,8 +38,8 @@ layers:
   - {t: /, h: MOUSE}
   - '`'
   - '&malt_ws'
-  - '&mgui_func'
   - {t: SPACE, h: NUM}
+  - '&mgui_func'
   - {t: RETURN, h: SYM}
   - {t: BACK SPACE, h: MEDIA}
   NUM:
