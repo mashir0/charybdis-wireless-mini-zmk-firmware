@@ -12,10 +12,10 @@ layers:
   - I
   - O
   - P
-  - UP ARROW
+  - '-'
   - {t: TAB, h: LCTRL}
   - A
-  - {t: S, h: GAME}
+  - {t: S, h: WORKSPACE}
   - {t: D, h: MEDIA}
   - {t: F, h: EXTRAS}
   - G
@@ -23,8 +23,8 @@ layers:
   - J
   - K
   - L
-  - LEFT
-  - RIGHT
+  - ;
+  - ''''
   - {t: SEARCH, h: LEFT SHIFT}
   - {t: Z, h: BASE}
   - {t: X, h: NUM}
@@ -33,12 +33,12 @@ layers:
   - B
   - N
   - M
-  - L CLK
-  - R CLK
-  - SCRL SLOW
-  - DOWN
-  - '&my_alt_mouse'
-  - '&my_gui_func'
+  - ','
+  - .
+  - {t: /, h: MOUSE}
+  - '`'
+  - '&malt_ws'
+  - '&mgui_func'
   - {t: SPACE, h: NUM}
   - {t: RETURN, h: SYM}
   - {t: BACK SPACE, h: MEDIA}
@@ -168,46 +168,46 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  GAME:
-  - '1'
-  - TAB
-  - Q
-  - W
-  - E
-  - R
+  WORKSPACE:
+  - {t: ▽, type: trans}
+  - ''
+  - ''
+  - Ctl+ UP
+  - ''
+  - ''
+  - ''
+  - ''
+  - Ctl+ UP
+  - ''
+  - ''
+  - ''
+  - {t: ▽, type: trans}
+  - ''
+  - {t: Ctl+ LEFT, type: held}
+  - Ctl+ DOWN
+  - Ctl+ RIGHT
+  - ''
+  - ''
+  - Ctl+ LEFT
+  - Ctl+ DOWN
+  - Ctl+ RIGHT
+  - ''
+  - ''
+  - {t: ▽, type: trans}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
   - ''
   - ''
   - ''
   - ''
   - ''
   - {t: ▽, type: trans}
-  - '2'
-  - LCTRL
-  - {t: A, type: held}
-  - S
-  - D
-  - F
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - '3'
-  - LSHFT
-  - Z
-  - X
-  - C
-  - V
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - SPACE
-  - LEFT ALT
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - ''
   - ''
   MEDIA:
@@ -295,46 +295,46 @@ layers:
   - ''
   - ''
   MOUSE:
-  - ''
+  - {t: ▽, type: trans}
   - WHEEL L
   - {t: WHEEL D, type: held}
   - MOVE UP
   - WHEEL U
   - WHEEL R
   - ''
+  - HOME
+  - UP
+  - END
   - ''
   - ''
-  - ''
-  - ''
-  - ''
-  - TAB
+  - {t: ▽, type: trans}
   - BACK
   - MOVE L
   - MOVE D
   - MOVE R
   - FWD
   - ''
-  - RIGHT SHIFT
-  - RCTRL
-  - LEFT ALT
-  - LCMD
+  - LEFT
+  - DOWN
+  - RIGHT
   - ''
   - ''
+  - {t: ▽, type: trans}
   - UNDO
   - CUT
   - COPY
   - PASTE
   - Mid CLK
   - ''
-  - ''
-  - ''
-  - ''
+  - L CLK
+  - R CLK
+  - SCRL SLOW
   - ''
   - ''
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - RETURN
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   SLOW:
   - {t: ▽, type: trans}
