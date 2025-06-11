@@ -231,7 +231,8 @@
         td_cursor: td_scroll_or_cursor {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&lt 9 ESC>, <&mo 8>;
+            tapping-term-ms = <100>;
+            bindings = <&mo 9>, <&mo 8>;
 
             // hold, tap, double_tap
         };
@@ -365,9 +366,8 @@
 
         // マウスの速度設定 multiplier/divisor
         // scale-multiplier = <4>;
-
         scale-multiplier = <3>;
-        scale-divisor = <5>;
+        scale-divisor = <6>;
 
         // bindings = <&ib_toggle_layer 7>;
     };
@@ -383,13 +383,11 @@
         y-input-code = <INPUT_REL_Y>;
 
         // マウスの速度設定 multiplier/divisor
-
         scale-multiplier = <1>;
         scale-divisor = <6>;
     };
 
     /* マウス 縦スクロールモード Layer 9 */
-
     trackball_scroll_listener {
         compatible = "zmk,input-behavior-listener";
         device = <&vtrackball>;
@@ -397,11 +395,11 @@
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_MISC>;
         y-input-code = <INPUT_REL_WHEEL>;
-        y-invert;
+        // 縦スクロールの方向を反転
+        // y-invert;
 
         // bindings = <&ib_wheel_scaler 1 14>;
-
-        bindings = <&ib_wheel_scaler 1 28>;
+        bindings = <&ib_wheel_scaler 1 56>;
     };
 
     /* define a resolution down scaler only for INPUT_REL_WHEEL */
@@ -451,7 +449,7 @@
 &lt 6 ESCAPE                     &kp Q    &lt 7 W  &kp E     &kp R       &kp T          &kp Y         &kp U            &kp I      &kp O       &kp P          &kp MINUS
 &hm_left LCTRL TAB               &kp A    &lt 4 S  &lt 5 D   &lt 6 F     &kp G          &kp H         &kp J            &kp K      &kp L       &kp SEMICOLON  &kp APOSTROPHE
 &hm_left LEFT_SHIFT C_AC_SEARCH  &lt 0 Z  &lt 1 X  &lt 2 C   &lt 3 V     &kp B          &kp N         &kp M            &kp COMMA  &kp PERIOD  &lt 7 SLASH    &kp GRAVE
-                                                   &malt_ws  &mgui_func  &lt 1 SPACE    &lt 3 RETURN  &lt 5 BACKSPACE
+                                                   &malt_ws  &lt 1 SPACE &mgui_func     &lt 3 RETURN  &lt 5 BACKSPACE
             >;
         };
 
