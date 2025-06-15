@@ -412,9 +412,9 @@
 
         NUM {
             bindings = <
-&trans  &none  &none  &none   &none          &none        &kp ASTRK  &kp NUMBER_7  &kt N8        &kp N9        &kp PLUS   &kp ASTRK
-&trans  &none  &none  &none   &none          &none        &kp MINUS  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS  &kp SLASH
-&none   &none  &none  &none   &kp BACKSPACE  &kp SPACE    &kp N0     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp DOT    &td_equals
+&trans  &none  &none  &none   &none          &none        &kp ASTRK    &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PLUS   &kp ASTRK
+&trans  &none  &none  &none   &none          &none        &kp MINUS    &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS  &kp SLASH
+&none   &none  &none  &none   &kp BACKSPACE  &kp SPACE    &kp NUMBER_0 &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp DOT    &td_equals
                       &trans  &trans         &trans       &trans     &trans
             >;
         };
