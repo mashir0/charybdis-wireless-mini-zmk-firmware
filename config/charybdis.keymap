@@ -172,8 +172,8 @@
 #define TAP_DANCE_2(name, single_tap, double_tap) \
     name: tap_dance { \
         compatible = "zmk,behavior-tap-dance"; \
-        label = #name; \
         #binding-cells = <0>; \
+        tapping-term-ms = <150>; \
         bindings = <single_tap>, <double_tap>; \
     };
 
@@ -185,6 +185,7 @@
         flavor = "balanced"; \
         bindings = <&to layer>, <&mo layer>; \
     };
+
 / {
     behaviors {
         // ホームローモッド（基本）: キーを押し続けると修飾キー、タップすると通常キー
@@ -328,8 +329,7 @@
 
         TAP_DANCE_2(space_num,  &lt 1 SPACE, &lt_num); // スペース1
         TAP_DANCE_2(esc_base,   &lt 6 ESC,   &lt_base); // ESC
-        TAP_DANCE_2(slh_cursor, &lt 7 FSLH,  &lt_mouse); // 
-
+        TAP_DANCE_2(slh_cursor, &lt 7 FSLH,  &lt_mouse); // スラッシュ/マウス
     };
 };
 
@@ -424,7 +424,7 @@
             bindings = <
 &esc_base                   &kp Q    &lt 7 W  &kp E     &kp R       &kp T       &kp Y         &kp U            &kp I      &kp O       &kp P          &kp MINUS
 &hm LCTRL TAB               &kp A    &lt 4 S  &lt 5 D   &lt 6 F     &kp G       &kp H         &kp J            &kp K      &kp L       &kp SEMICOLON  &kp APOSTROPHE
-&hm LEFT_SHIFT C_AC_SEARCH  &lt 0 Z  &lt 1 X  &lt 2 C   &lt 3 V     &kp B       &kp N         &kp M            &kp COMMA  &kp PERIOD  &slash_cursor   &kp GRAVE
+&hm LEFT_SHIFT C_AC_SEARCH  &lt 0 Z  &lt 1 X  &lt 2 C   &lt 3 V     &kp B       &kp N         &kp M            &kp COMMA  &kp PERIOD  &slh_cursor   &kp GRAVE
                                               &jp_alt4  &space_num  &en_gui2    &lt 3 BACKSPACE &lt 5 ENTER 
             >;
         };
