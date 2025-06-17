@@ -173,22 +173,21 @@
 / {
     behaviors {
         #define TAP_DANCE_2(name, single_tap, double_tap) \
-            name##_td: name { \
+            name: name { \
                 compatible = "zmk,behavior-tap-dance"; \
-                label = #name; \
                 #binding-cells = <0>; \
                 tapping-term-ms = <150>; \
                 bindings = single_tap, double_tap; \
             }
 
         #define LAYER_TOGGLE(name, layer) \
-            name##_lt: layer_toggle { \
+            name: name { \
                 compatible = "zmk,behavior-hold-tap"; \
                 #binding-cells = <0>; \
                 tapping-term-ms = <150>; \
                 flavor = "balanced"; \
                 bindings = <&to layer>, <&mo layer>; \
-            };
+            }
 
         // ホームローモッド（基本）: キーを押し続けると修飾キー、タップすると通常キー
         hm: homerow_mod {
