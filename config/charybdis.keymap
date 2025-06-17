@@ -169,25 +169,26 @@
 /*-------------------------------------------------------
 * behaviors
 -------------------------------------------------------*/
-#define TAP_DANCE_2(name, single_tap, double_tap) \
-    name: tap_dance { \
-        compatible = "zmk,behavior-tap-dance"; \
-        #binding-cells = <0>; \
-        tapping-term-ms = <150>; \
-        bindings = <single_tap>, <double_tap>; \
-    };
-
-#define LAYER_TOGGLE(name, layer) \
-    name: layer_toggle { \
-        compatible = "zmk,behavior-hold-tap"; \
-        #binding-cells = <0>; \
-        tapping-term-ms = <150>; \
-        flavor = "balanced"; \
-        bindings = <&to layer>, <&mo layer>; \
-    };
 
 / {
     behaviors {
+        #define TAP_DANCE_2(name, single_tap, double_tap) \
+            name: tap_dance { \
+                compatible = "zmk,behavior-tap-dance"; \
+                #binding-cells = <0>; \
+                tapping-term-ms = <150>; \
+                bindings = <single_tap>, <double_tap>; \
+            };
+
+        #define LAYER_TOGGLE(name, layer) \
+            name: layer_toggle { \
+                compatible = "zmk,behavior-hold-tap"; \
+                #binding-cells = <0>; \
+                tapping-term-ms = <150>; \
+                flavor = "balanced"; \
+                bindings = <&to layer>, <&mo layer>; \
+            };
+
         // ホームローモッド（基本）: キーを押し続けると修飾キー、タップすると通常キー
         hm: homerow_mod {
             compatible = "zmk,behavior-hold-tap";
