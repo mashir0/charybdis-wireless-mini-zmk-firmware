@@ -496,7 +496,7 @@
             bindings = <
 &trans  &msc MOVE_LEFT  &msc MOVE_UP    &mmv MOVE_UP    &msc MOVE_DOWN   &msc MOVE_RIGHT    &none   &kp HOME   &kp UP     &kp END     &none  &none
 &trans  &mkp MB4        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp MB5           &none   &kp LEFT   &kp DOWN   &kp RIGHT   &none  &none
-&trans  &kp C_AC_UNDO   &kp C_AC_CUT    &kp C_AC_COPY   &kp C_AC_PASTE   &mkp MCLK          &none   &mkp LCLK  &mkp RCLK  &td_cursor  &none  &none
+&trans  &kp C_AC_UNDO   &kp C_AC_CUT    &kp C_AC_COPY   &kp C_AC_PASTE   &mkp MCLK          &none   &mkp LCLK  &mkp RCLK  &slh_cursor &none  &none
                                         &trans          &trans           &trans             &trans  &trans
             >;
         };
