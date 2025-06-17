@@ -173,15 +173,16 @@
 / {
     behaviors {
         #define TAP_DANCE_2(name, single_tap, double_tap) \
-            name: tap_dance { \
+            name##_td: name { \
                 compatible = "zmk,behavior-tap-dance"; \
+                label = #name; \
                 #binding-cells = <0>; \
                 tapping-term-ms = <150>; \
                 bindings = single_tap, double_tap; \
-            };
+            }
 
         #define LAYER_TOGGLE(name, layer) \
-            name: layer_toggle { \
+            name##_lt: layer_toggle { \
                 compatible = "zmk,behavior-hold-tap"; \
                 #binding-cells = <0>; \
                 tapping-term-ms = <150>; \
@@ -289,10 +290,14 @@
         /*-------------------------------------------------------
         * 記号入力補助 
         -------------------------------------------------------*/
-        TAP_DANCE_2(tb_grave,  <&kp GRAVE>, <&grave_macro>); // バッククォート拡張: タップでバッククォート、ダブルタップでマクロ
-        TAP_DANCE_2(tb_hyphen, <&kp MINUS>, <&minus_macro>); // ハイフン拡張: タップでハイフン、ダブルタップでスペース付きハイフン
-        TAP_DANCE_2(tb_equals, <&kp EQUAL>, <&equals_macro>); // イコール拡張: タップでイコール、ダブルタップでスペース付きイコール
-        TAP_DANCE_2(tb_home,   <&kp FSLH>,  <&home_macro>); // スラッシュ拡張: タップでスラッシュ、ダブルタップでホームディレクトリパス
+        // バッククォート拡張: タップでバッククォート、ダブルタップでマクロ
+        TAP_DANCE_2(tb_grave,  <&kp GRAVE>, <&grave_macro>);
+        // ハイフン拡張: タップでハイフン、ダブルタップでスペース付きハイフン
+        TAP_DANCE_2(tb_hyphen, <&kp MINUS>, <&minus_macro>);
+        // イコール拡張: タップでイコール、ダブルタップでスペース付きイコール
+        TAP_DANCE_2(tb_equals, <&kp EQUAL>, <&equals_macro>);
+        // スラッシュ拡張: タップでスラッシュ、ダブルタップでホームディレクトリパス
+        TAP_DANCE_2(tb_home,   <&kp FSLH>,  <&home_macro>);
 
         // // バッククォート拡張: タップでバッククォート、ダブルタップでマクロ
         // td_grave: DoubleTap_Grave {
