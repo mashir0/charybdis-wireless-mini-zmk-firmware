@@ -321,11 +321,10 @@
         * tap-dance
         -------------------------------------------------------*/
         TAP_DANCE_2(jp_alt4,<&hm LEFT_ALT LANG1>,<&httl 4 4>);
-
-        // TAP_DANCE_2(en_gui2,<&hm LEFT_GUI LANG2>,<&httl 2 2>);
-        // TAP_DANCE_2(esc_base,<&lt 6 ESC>,<&httl 0 0>);
-        // TAP_DANCE_2(space_num,<&lt 1 SPACE>,<&httl 1 1>);
-        // TAP_DANCE_2(slh_cursor,<&lt 7 FSLH>,<&httl 7 7>);
+        TAP_DANCE_2(en_gui2,<&hm LEFT_GUI LANG2>,<&httl 2 2>);
+        TAP_DANCE_2(esc_base,<&lt 6 ESC>,<&httl 0 0>);
+        TAP_DANCE_2(space_num,<&lt 1 SPACE>,<&httl 1 1>);
+        TAP_DANCE_2(slh_cursor,<&lt 7 FSLH>,<&httl 7 7>);
     };
 };
 
