@@ -339,7 +339,7 @@
             tapping-term-ms = <150>;
             flavor = "balanced";
             bindings = <&to 0>, <&mo 0>;
-        }
+        };
 
         lt_num: lt_num { 
             compatible = "zmk,behavior-hold-tap"; 
@@ -347,7 +347,7 @@
             tapping-term-ms = <150>;
             flavor = "balanced";
             bindings = <&to 1>, <&mo 1>;
-        }
+        };
 
         lt_mouse: lt_mouse { 
             compatible = "zmk,behavior-hold-tap"; 
@@ -355,7 +355,7 @@
             tapping-term-ms = <150>;
             flavor = "balanced";
             bindings = <&to 7>, <&mo 7>;
-        }
+        };
 
         // TAP_DANCE_2(jp_alt4,<&hm LEFT_ALT LANG1>,<&httl 4 4>);
         // TAP_DANCE_2(en_gui2,<&hm LEFT_GUI LANG2>,<&httl 2 2>);
