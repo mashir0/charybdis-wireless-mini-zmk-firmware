@@ -235,32 +235,6 @@
             // hold, tap, double_tap
         };
 
-        // // スペースキー拡張: タップでスペース、ホールドでレイヤー2
-        // td_space: td_space {
-        //     compatible = "zmk,behavior-tap-dance";
-        //     #binding-cells = <0>;
-        //     tapping-term-ms = <85>;
-        //     bindings = <&lt 2 SPACE>, <&kp SPACE>;
-        //     // hold, tap, double_tap
-        // };
-
-        // // バックスペース拡張: タップでバックスペース、ホールドでレイヤー1
-        // td_bs: td_bs {
-        //     compatible = "zmk,behavior-tap-dance";
-        //     #binding-cells = <0>;
-        //     tapping-term-ms = <85>;
-        //     bindings = <&lt 1 BACKSPACE>, <&kp BACKSPACE>;
-        //     // hold, tap, double_tap
-        // };
-
-        // レイヤー切り替え: タップでレイヤー0、ダブルタップでレイヤー5、トリプルタップでレイヤー4
-        // td_layers: td_layer_swap {
-        //     compatible = "zmk,behavior-tap-dance";
-        //     #binding-cells = <0>;
-        //     bindings = <&to 0>, <&to 5>, <&to 4>;
-        //     // tap, double_tap, tripple_tap
-        // };
-
         // クリック/スクロール切り替え: タップで右クリック、ホールドでレイヤー9
         // td_clk_scrl: td_click_or_scroll {
         //     compatible = "zmk,behavior-tap-dance";
