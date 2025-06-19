@@ -180,15 +180,6 @@
                 bindings = single_tap, double_tap; \
             }
 
-        #define LAYER_TOGGLE(name, layer) \
-            name: name { \
-                compatible = "zmk,behavior-hold-tap"; \
-                #binding-cells = <0>; \
-                tapping-term-ms = <150>; \
-                flavor = "balanced"; \
-                bindings = <&to layer>, <&mo layer>; \
-            }
-
         // ホームローモッド（基本）: キーを押し続けると修飾キー、タップすると通常キー
         hm: homerow_mod {
             compatible = "zmk,behavior-hold-tap";
@@ -329,39 +320,11 @@
         /*-------------------------------------------------------
         * tap-dance
         -------------------------------------------------------*/
-        // LAYER_TOGGLE(lt_base,0);
-        // LAYER_TOGGLE(lt_num,1);
-        // LAYER_TOGGLE(lt_mouse,7);
-
-        lt_base: lt_base { 
-            compatible = "zmk,behavior-hold-tap"; 
-            #binding-cells = <0>; 
-            tapping-term-ms = <150>;
-            flavor = "balanced";
-            bindings = <&to 0>, <&mo 0>;
-        };
-
-        lt_num: lt_num { 
-            compatible = "zmk,behavior-hold-tap"; 
-            #binding-cells = <0>; 
-            tapping-term-ms = <150>;
-            flavor = "balanced";
-            bindings = <&to 1>, <&mo 1>;
-        };
-
-        lt_mouse: lt_mouse { 
-            compatible = "zmk,behavior-hold-tap"; 
-            #binding-cells = <0>; 
-            tapping-term-ms = <150>;
-            flavor = "balanced";
-            bindings = <&to 7>, <&mo 7>;
-        };
-
         // TAP_DANCE_2(jp_alt4,<&hm LEFT_ALT LANG1>,<&httl 4 4>);
         // TAP_DANCE_2(en_gui2,<&hm LEFT_GUI LANG2>,<&httl 2 2>);
-        // TAP_DANCE_2(esc_base,<&lt 6 ESC>,<&lt_base>);
-        // TAP_DANCE_2(space_num,<&lt 1 SPACE>,<&lt_num>);
-        // TAP_DANCE_2(slh_cursor,<&lt 7 FSLH>,<&lt_mouse>);
+        // TAP_DANCE_2(esc_base,<&lt 6 ESC>,<&httl 0 0>);
+        // TAP_DANCE_2(space_num,<&lt 1 SPACE>,<&httl 1 1>);
+        // TAP_DANCE_2(slh_cursor,<&lt 7 FSLH>,<&httl 7 7>);
     };
 };
 
