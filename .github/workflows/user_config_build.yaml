@@ -216,6 +216,16 @@ jobs:
           fi
         if: ${{ !cancelled() }}
 
+      - name: Copy preprocessed devicetree files
+        run: |
+          mkdir -p "${{ env.build_dir }}/artifacts"
+          if [ -f "${{ env.build_dir }}/zephyr/zephyr.dts.pre" ]; then
+            cp "${{ env.build_dir }}/zephyr/zephyr.dts.pre" "${{ env.build_dir }}/artifacts/"
+          fi
+          if [ -f "${{ env.build_dir }}/zephyr/charybdis.keymap.pre" ]; then
+            cp "${{ env.build_dir }}/zephyr/charybdis.keymap.pre" "${{ env.build_dir }}/artifacts/"
+          fi
+
       - name: Rename artifacts
         shell: sh -x {0}
         run: |
@@ -248,29 +258,29 @@ jobs:
           name: firmware-charybdis-qwerty
           delete-merged: true
 
-      - name: Upload Charybdis ZMK Firmware (QWERTY Dongle)
-        continue-on-error: true
-        uses: actions/upload-artifact/merge@v4
-        with:
-          pattern: artifact-charybdis_qwerty_dongle*
-          name: firmware-charybdis-qwerty-dongle
-          delete-merged: true
+      # - name: Upload Charybdis ZMK Firmware (QWERTY Dongle)
+      #   continue-on-error: true
+      #   uses: actions/upload-artifact/merge@v4
+      #   with:
+      #     pattern: artifact-charybdis_qwerty_dongle*
+      #     name: firmware-charybdis-qwerty-dongle
+      #     delete-merged: true
 
-      - name: Upload Charybdis ZMK Firmware (Colemak BT)
-        continue-on-error: true
-        uses: actions/upload-artifact/merge@v4
-        with:
-          pattern: artifact-charybdis_colemak_{left,right}
-          name: firmware-charybdis-colemak
-          delete-merged: true
+      # - name: Upload Charybdis ZMK Firmware (Colemak BT)
+      #   continue-on-error: true
+      #   uses: actions/upload-artifact/merge@v4
+      #   with:
+      #     pattern: artifact-charybdis_colemak_{left,right}
+      #     name: firmware-charybdis-colemak
+      #     delete-merged: true
 
-      - name: Upload Charybdis ZMK Firmware (Colemak Dongle)
-        continue-on-error: true
-        uses: actions/upload-artifact/merge@v4
-        with:
-          pattern: artifact-charybdis_colemak_dongle*
-          name: firmware-charybdis-colemak-dongle
-          delete-merged: true
+      # - name: Upload Charybdis ZMK Firmware (Colemak Dongle)
+      #   continue-on-error: true
+      #   uses: actions/upload-artifact/merge@v4
+      #   with:
+      #     pattern: artifact-charybdis_colemak_dongle*
+      #     name: firmware-charybdis-colemak-dongle
+      #     delete-merged: true
 
       - name: Upload Firmware Reset (Nano v2)
         continue-on-error: true
