@@ -1,7 +1,7 @@
 layout: {zmk_keyboard: charybdis}
 layers:
   BASE:
-  - ESC
+  - '&esc_base'
   - Q
   - {t: W, h: MOUSE}
   - E
@@ -35,11 +35,11 @@ layers:
   - M
   - ','
   - .
-  - ESC
+  - '&slh_cursor'
   - '`'
-  - ESC
-  - ESC
-  - ESC
+  - '&jp_alt4'
+  - '&space_num'
+  - '&en_gui2'
   - {t: BACK SPACE, h: SYM}
   - {t: ENTER, h: MEDIA}
   NUM:
@@ -328,7 +328,7 @@ layers:
   - ''
   - L CLK
   - R CLK
-  - SCRL SLOW
+  - '&slh_cursor'
   - ''
   - ''
   - {t: ▽, type: trans}
