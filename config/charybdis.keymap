@@ -329,16 +329,14 @@
         /*-------------------------------------------------------
         * tap-dance
         -------------------------------------------------------*/
-        LAYER_TOGGLE(lt_base,   0);
-        LAYER_TOGGLE(lt_num,    1);
-        LAYER_TOGGLE(lt_mouse,  7);
-
-        TAP_DANCE_2(jp_alt4,    <&hm LEFT_ALT LANG1>, <&httl 4 4>); // 英語GUI2
-        TAP_DANCE_2(en_gui2,    <&hm LEFT_GUI LANG2>, <&httl 2 2>); // 英語GUI2
-
-        TAP_DANCE_2(esc_base,   <&lt 6 ESC>,          <&lt_base>);  // ESC
-        TAP_DANCE_2(space_num,  <&lt 1 SPACE>,        <&lt_num>);   // スペース1
-        TAP_DANCE_2(slh_cursor, <&lt 7 FSLH>,         <&lt_mouse>); // スラッシュ/マウス
+        LAYER_TOGGLE(lt_base,0);
+        LAYER_TOGGLE(lt_num,1);
+        LAYER_TOGGLE(lt_mouse,7);
+        TAP_DANCE_2(jp_alt4,<&hm LEFT_ALT LANG1>,<&httl 4 4>);
+        TAP_DANCE_2(en_gui2,<&hm LEFT_GUI LANG2>,<&httl 2 2>);
+        TAP_DANCE_2(esc_base,<&lt 6 ESC>,<&lt_base>);
+        TAP_DANCE_2(space_num,<&lt 1 SPACE>,<&lt_num>);
+        TAP_DANCE_2(slh_cursor,<&lt 7 FSLH>,<&lt_mouse>);
     };
 };
 
