@@ -236,13 +236,13 @@
         };
 
         // スクロール/カーソル切り替え: タップでESC、ホールドでレイヤー9
-        // td_cursor: td_scroll_or_cursor {
-        //     compatible = "zmk,behavior-tap-dance";
-        //     #binding-cells = <0>;
-        //     tapping-term-ms = <100>;
-        //     bindings = <&mo 9>, <&mo 8>;
-        //     // hold, tap, double_tap
-        // };
+        td_cursor: td_scroll_or_cursor {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <100>;
+            bindings = <&mo 9>, <&mo 8>;
+            // hold, tap, double_tap
+        };
 
         // // スペースキー拡張: タップでスペース、ホールドでレイヤー2
         // td_space: td_space {
@@ -289,54 +289,79 @@
         /*-------------------------------------------------------
         * 記号入力補助 
         -------------------------------------------------------*/
-        // バッククォート拡張: タップでバッククォート、ダブルタップでマクロ
-        TAP_DANCE_2(td_grave,  <&kp GRAVE>, <&grave_macro>);
-        // ハイフン拡張: タップでハイフン、ダブルタップでスペース付きハイフン
-        TAP_DANCE_2(td_hyphen, <&kp MINUS>, <&minus_macro>);
-        // イコール拡張: タップでイコール、ダブルタップでスペース付きイコール
-        TAP_DANCE_2(td_equals, <&kp EQUAL>, <&equals_macro>);
-        // スラッシュ拡張: タップでスラッシュ、ダブルタップでホームディレクトリパス
-        TAP_DANCE_2(td_home,   <&kp FSLH>,  <&home_macro>);
-
         // // バッククォート拡張: タップでバッククォート、ダブルタップでマクロ
-        // td_grave: DoubleTap_Grave {
-        //     compatible = "zmk,behavior-tap-dance";
-        //     #binding-cells = <0>;
-        //     bindings = <&kp GRAVE>, <&grave_macro>;
-        // };
-
+        // TAP_DANCE_2(td_grave,<&kp GRAVE>,<&grave_macro>);
         // // ハイフン拡張: タップでハイフン、ダブルタップでスペース付きハイフン
-        // td_hyphen: DoubleTap_Hyphen {
-        //     compatible = "zmk,behavior-tap-dance";
-        //     #binding-cells = <0>;
-        //     bindings = <&kp MINUS>, <&minus_macro>;
-        // };
-
+        // TAP_DANCE_2(td_hyphen,<&kp MINUS>,<&minus_macro>);
         // // イコール拡張: タップでイコール、ダブルタップでスペース付きイコール
-        // td_equals: DoubleTap_Equals {
-        //     compatible = "zmk,behavior-tap-dance";
-        //     #binding-cells = <0>;
-        //     bindings = <&kp EQUAL>, <&equals_macro>;
-        // };
-
+        // TAP_DANCE_2(td_equals,<&kp EQUAL>,<&equals_macro>);
         // // スラッシュ拡張: タップでスラッシュ、ダブルタップでホームディレクトリパス
-        // td_home: DoubleTap_Home {
-        //     compatible = "zmk,behavior-tap-dance";
-        //     #binding-cells = <0>;
-        //     bindings = <&kp FSLH>, <&home_macro>;
-        // };
+        // TAP_DANCE_2(td_home,<&kp FSLH>,<&home_macro>);
+
+        // バッククォート拡張: タップでバッククォート、ダブルタップでマクロ
+        td_grave: DoubleTap_Grave {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp GRAVE>, <&grave_macro>;
+        };
+
+        // ハイフン拡張: タップでハイフン、ダブルタップでスペース付きハイフン
+        td_hyphen: DoubleTap_Hyphen {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp MINUS>, <&minus_macro>;
+        };
+
+        // イコール拡張: タップでイコール、ダブルタップでスペース付きイコール
+        td_equals: DoubleTap_Equals {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp EQUAL>, <&equals_macro>;
+        };
+
+        // スラッシュ拡張: タップでスラッシュ、ダブルタップでホームディレクトリパス
+        td_home: DoubleTap_Home {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp FSLH>, <&home_macro>;
+        };
 
         /*-------------------------------------------------------
         * tap-dance
         -------------------------------------------------------*/
-        LAYER_TOGGLE(lt_base,0);
-        LAYER_TOGGLE(lt_num,1);
-        LAYER_TOGGLE(lt_mouse,7);
-        TAP_DANCE_2(jp_alt4,<&hm LEFT_ALT LANG1>,<&httl 4 4>);
-        TAP_DANCE_2(en_gui2,<&hm LEFT_GUI LANG2>,<&httl 2 2>);
-        TAP_DANCE_2(esc_base,<&lt 6 ESC>,<&lt_base>);
-        TAP_DANCE_2(space_num,<&lt 1 SPACE>,<&lt_num>);
-        TAP_DANCE_2(slh_cursor,<&lt 7 FSLH>,<&lt_mouse>);
+        // LAYER_TOGGLE(lt_base,0);
+        // LAYER_TOGGLE(lt_num,1);
+        // LAYER_TOGGLE(lt_mouse,7);
+
+        lt_base: lt_base { 
+            compatible = "zmk,behavior-hold-tap"; 
+            #binding-cells = <0>; 
+            tapping-term-ms = <150>;
+            flavor = "balanced";
+            bindings = <&to 0>, <&mo 0>;
+        }
+
+        lt_num: lt_num { 
+            compatible = "zmk,behavior-hold-tap"; 
+            #binding-cells = <0>; 
+            tapping-term-ms = <150>;
+            flavor = "balanced";
+            bindings = <&to 1>, <&mo 1>;
+        }
+
+        lt_mouse: lt_mouse { 
+            compatible = "zmk,behavior-hold-tap"; 
+            #binding-cells = <0>; 
+            tapping-term-ms = <150>;
+            flavor = "balanced";
+            bindings = <&to 7>, <&mo 7>;
+        }
+
+        // TAP_DANCE_2(jp_alt4,<&hm LEFT_ALT LANG1>,<&httl 4 4>);
+        // TAP_DANCE_2(en_gui2,<&hm LEFT_GUI LANG2>,<&httl 2 2>);
+        // TAP_DANCE_2(esc_base,<&lt 6 ESC>,<&lt_base>);
+        // TAP_DANCE_2(space_num,<&lt 1 SPACE>,<&lt_num>);
+        // TAP_DANCE_2(slh_cursor,<&lt 7 FSLH>,<&lt_mouse>);
     };
 };
 
@@ -424,15 +449,20 @@
     // #define SLOW      8
     // #define SCROLL    9
 
+// &esc_base                   &kp Q    &lt 7 W  &kp E     &kp R       &kp T       &kp Y         &kp U            &kp I      &kp O       &kp P          &kp MINUS
+// &hm LCTRL TAB               &kp A    &lt 4 S  &lt 5 D   &lt 6 F     &kp G       &kp H         &kp J            &kp K      &kp L       &kp SEMICOLON  &kp APOSTROPHE
+// &hm LEFT_SHIFT C_AC_SEARCH  &lt 0 Z  &lt 1 X  &lt 2 C   &lt 3 V     &kp B       &kp N         &kp M            &kp COMMA  &kp PERIOD  &slh_cursor   &kp GRAVE
+                                              // &jp_alt4  &space_num  &en_gui2    &lt 3 BACKSPACE &lt 5 ENTER 
+
     keymap {
         compatible = "zmk,keymap";
 
         BASE {
             bindings = <
-&esc_base                   &kp Q    &lt 7 W  &kp E     &kp R       &kp T       &kp Y         &kp U            &kp I      &kp O       &kp P          &kp MINUS
+&kp ESC                     &kp Q    &lt 7 W  &kp E     &kp R       &kp T       &kp Y         &kp U            &kp I      &kp O       &kp P          &kp MINUS
 &hm LCTRL TAB               &kp A    &lt 4 S  &lt 5 D   &lt 6 F     &kp G       &kp H         &kp J            &kp K      &kp L       &kp SEMICOLON  &kp APOSTROPHE
-&hm LEFT_SHIFT C_AC_SEARCH  &lt 0 Z  &lt 1 X  &lt 2 C   &lt 3 V     &kp B       &kp N         &kp M            &kp COMMA  &kp PERIOD  &slh_cursor   &kp GRAVE
-                                              &jp_alt4  &space_num  &en_gui2    &lt 3 BACKSPACE &lt 5 ENTER 
+&hm LEFT_SHIFT C_AC_SEARCH  &lt 0 Z  &lt 1 X  &lt 2 C   &lt 3 V     &kp B       &kp N         &kp M            &kp COMMA  &kp PERIOD  &kp ESC        &kp GRAVE
+                                              &kp ESC   &kp ESC     &kp ESC     &lt 3 BACKSPACE &lt 5 ENTER 
             >;
         };
 
@@ -494,7 +524,7 @@
             bindings = <
 &trans  &msc MOVE_LEFT  &msc MOVE_UP    &mmv MOVE_UP    &msc MOVE_DOWN   &msc MOVE_RIGHT    &none   &kp HOME   &kp UP     &kp END     &none  &none
 &trans  &mkp MB4        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp MB5           &none   &kp LEFT   &kp DOWN   &kp RIGHT   &none  &none
-&trans  &kp C_AC_UNDO   &kp C_AC_CUT    &kp C_AC_COPY   &kp C_AC_PASTE   &mkp MCLK          &none   &mkp LCLK  &mkp RCLK  &slh_cursor &none  &none
+&trans  &kp C_AC_UNDO   &kp C_AC_CUT    &kp C_AC_COPY   &kp C_AC_PASTE   &mkp MCLK          &none   &mkp LCLK  &mkp RCLK  &td_cursor  &none  &none
                                         &trans          &trans           &trans             &trans  &trans
             >;
         };
