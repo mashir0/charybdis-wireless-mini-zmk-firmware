@@ -328,7 +328,7 @@ layers:
   - ''
   - L CLK
   - R CLK
-  - '&slh_cursor'
+  - SCRL SLOW
   - ''
   - ''
   - {t: ▽, type: trans}
