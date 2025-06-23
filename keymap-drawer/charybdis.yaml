@@ -177,7 +177,7 @@ layers:
   - ''
   - ''
   - ''
-  - Ctl+ UP
+  - ''
   - ''
   - ''
   - ''
@@ -187,8 +187,8 @@ layers:
   - Ctl+ DOWN
   - Ctl+ RIGHT
   - ''
-  - ''
   - Ctl+ LEFT
+  - Ctl+ UP
   - Ctl+ DOWN
   - Ctl+ RIGHT
   - ''
