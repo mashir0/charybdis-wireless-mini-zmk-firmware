@@ -347,7 +347,14 @@
         y-input-code = <INPUT_REL_WHEEL>;
         // y-invert; // 縦スクロールの方向を反転
         bindings = <&ib_wheel_scaler 1 64>;
-        input-processors = <&inertial_scroll_processor>; // 慣性スクロール効果を追加
+    };
+
+    /* 慣性スクロール専用リスナー */
+    trackball_inertial_scroll {
+        compatible = "zmk,input-listener";
+        device = <&vtrackball>;
+        layers = <9>; // レイヤー9（SCROLL）でのみ動作
+        input-processors = <&inertial_scroll_processor>;
     };
 
     /* Input Processorを使用したオートマウスレイヤー */
