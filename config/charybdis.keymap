@@ -366,19 +366,7 @@
     trackball_auto_mouse {
         compatible = "zmk,input-listener";
         device = <&vtrackball>;
-        input-processors = <&zip_temp_layer 7 3000>; // レイヤー7（MOUSE）に3秒間切り替え
-    };
-
-    /* 継続的なマウス移動時にタイムアウトを延長 */
-    trackball_continuous_mouse {
-        compatible = "zmk,input-listener";
-        device = <&vtrackball>;
-        input-processors = <&zip_temp_layer 7 10000>; // 継続移動時に10秒間延長
-    };
-
-    /* マウスキーを押したらタイムアウトを延長する */
-    &mkp_input_listener {
-        input-processors = <&zip_temp_layer 7 10000>; // クリック時に10秒間AMLを延長
+        input-processors = <&zip_temp_layer 7 5000>; // レイヤー7（MOUSE）に5秒間切り替え
     };
 
     /* define a resolution down scaler only for INPUT_REL_WHEEL */
