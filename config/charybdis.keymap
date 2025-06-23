@@ -231,7 +231,7 @@
         td_cursor: td_scroll_or_cursor {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <100>;
+            tapping-term-ms = <200>;
             bindings = <&mo 9>, <&mo 8>;
             // hold, tap, double_tap
         };
@@ -337,16 +337,16 @@
         scale-divisor = <6>;
     };
 
-    /* マウス スクロールモード Layer 9（縦・水平両対応） */
+    /* マウス スクロールモード Layer 9（通常は縦スクロール、Shift押下で横スクロール） */
     trackball_scroll_listener {
         compatible = "zmk,input-behavior-listener";
         device = <&vtrackball>;
         layers = <9>;
         evt-type = <INPUT_EV_REL>;
-        x-input-code = <INPUT_REL_HWHEEL>;
-        y-input-code = <INPUT_REL_WHEEL>;
+        x-input-code = <INPUT_REL_MISC>;  // 元の設定に戻す
+        y-input-code = <INPUT_REL_WHEEL>;  // 縦スクロール
         // y-invert; // 縦スクロールの方向を反転
-        bindings = <&ib_wheel_scaler 1 64>;
+        bindings = <&ib_wheel_scaler 1 64>; // スクロール速度を遅くする（64→128）
     };
 
     /* Input Processorを使用したオートマウスレイヤー */
@@ -355,9 +355,10 @@
         compatible = "zmk,input-processor-temp-layer";
         #input-processor-cells = <2>;
         excluded-positions = <
-             7  8  9 
-            19 20 21 
-            31 32 33
+                7  8
+            18 19 20 21 
+               31 32 33
+            12 24 39 /*ctrl, shift, backspace*/ 
         >;
     };
 
@@ -375,6 +376,14 @@
         #binding-cells = <2>;
         evt-type = <INPUT_EV_REL>;
         input-code = <INPUT_REL_WHEEL>;
+    };
+
+    /* 横スクロール用のスケーラー */
+    ib_hwheel_scaler: ib_hwheel_scaler {
+        compatible = "zmk,input-behavior-scaler";
+        #binding-cells = <2>;
+        evt-type = <INPUT_EV_REL>;
+        input-code = <INPUT_REL_HWHEEL>;
     };
 
     /* adjust cooldown waiting period for mouse key layer after activated */
@@ -422,25 +431,25 @@
             bindings = <
 &trans  &none  &none  &none   &none          &none        &kp ASTRK    &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PLUS   &kp ASTRK
 &trans  &none  &none  &none   &none          &none        &kp MINUS    &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS  &kp SLASH
-&none   &none  &none  &none   &kp BACKSPACE  &kp SPACE    &kp NUMBER_0 &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp DOT    &td_equals
+&trans  &none  &none  &none   &kp BACKSPACE  &kp SPACE    &kp NUMBER_0 &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp DOT    &td_equals
                       &trans  &trans         &trans       &trans     &trans
             >;
         };
 
         FUNCTION {
             bindings = <
-&none   &none   &kp HOME  &kp UP_ARROW    &kp END    &none     &none   &kp F7  &kp F8  &kp F9  &kp F10  &none
+&trans  &none   &kp HOME  &kp UP_ARROW    &kp END    &none     &none   &kp F7  &kp F8  &kp F9  &kp F10  &none
 &trans  &trans  &kp LEFT  &kp DOWN_ARROW  &kp RIGHT  &none     &none   &kp F4  &kp F5  &kp F6  &kp F11  &none
-&none   &none   &none     &none           &none      &none     &none   &kp F1  &kp F2  &kp F3  &kp F12  &none
-                          &none           &none      &trans    &trans  &trans
+&trans  &none   &none     &none           &none      &none     &none   &kp F1  &kp F2  &kp F3  &kp F12  &none
+                          &trans          &trans     &trans    &trans  &trans
             >;
         };
 
         SYM {
             bindings = <
-&none  &none  &none  &none   &none   &none     &none       &kp AMPS    &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp EQUAL
-&none  &none  &none  &none   &trans  &none     &td_hyphen  &kp DOLLAR  &kp PERCENT   &kp CARET             &kp LEFT_BRACKET       &kp RIGHT_BRACKET
-&none  &none  &none  &none   &none   &none     &none       &kp EXCL    &kp AT        &kp HASH              &kp BACKSLASH          &kp BSLH
+&trans  &none  &none  &none   &none   &none     &none       &kp AMPS    &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp EQUAL
+&trans  &none  &none  &none   &trans  &none     &td_hyphen  &kp DOLLAR  &kp PERCENT   &kp CARET             &kp LEFT_BRACKET       &kp RIGHT_BRACKET
+&trans  &none  &none  &none   &none   &none     &none       &kp EXCL    &kp AT        &kp HASH              &kp BACKSLASH          &kp BSLH
                      &trans  &trans  &trans    &trans      &trans
             >;
         };
@@ -450,7 +459,7 @@
 &trans  &none  &none         &kp LC(UP)    &none          &none     &none  &none         &kp RC(UP)    &none          &none  &none
 &trans  &none  &kp LC(LEFT)  &kp LC(DOWN)  &kp LC(RIGHT)  &none     &none  &kp RC(LEFT)  &kp RC(DOWN)  &kp RC(RIGHT)  &none  &none
 &trans  &none  &none         &none         &none          &none     &none  &none         &none         &none          &none  &none
-                             &trans        &trans         &trans    &none  &none
+                             &trans        &trans         &trans    &trans &trans
             >;
         };
 
@@ -474,10 +483,10 @@
 
         MOUSE {
             bindings = <
-&trans  &msc MOVE_LEFT  &msc MOVE_UP    &mmv MOVE_UP    &msc MOVE_DOWN   &msc MOVE_RIGHT    &none   &kp HOME   &kp UP     &kp END     &none  &none
-&trans  &mkp MB4        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp MB5           &none   &kp LEFT   &kp DOWN   &kp RIGHT   &none  &none
-&trans  &kp C_AC_UNDO   &kp C_AC_CUT    &kp C_AC_COPY   &kp C_AC_PASTE   &mkp MCLK          &none   &mkp LCLK  &mkp RCLK  &td_cursor  &none  &none
-                                        &trans          &trans           &trans             &trans  &trans
+&trans  &msc MOVE_LEFT  &msc MOVE_UP    &mmv MOVE_UP    &msc MOVE_DOWN   &msc MOVE_RIGHT    &none    &kp END    &kp HOME   &none       &none  &none
+&trans  &mkp MB4        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp MB5           &kp LEFT &kp DOWN   &kp UP     &kp RIGHT   &none  &none
+&trans  &kp C_AC_UNDO   &kp C_AC_CUT    &kp C_AC_COPY   &kp C_AC_PASTE   &mkp MCLK          &none    &mkp LCLK  &mkp RCLK  &td_cursor  &none  &none
+                                        &trans          &trans           &trans             &trans   &trans
             >;
         };
 
