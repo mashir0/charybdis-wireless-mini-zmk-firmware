@@ -5,6 +5,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <input/processors.dtsi>
 
 /*-------------------------------------------------------
 * combos
@@ -176,7 +177,7 @@
             name: name { \
                 compatible = "zmk,behavior-tap-dance"; \
                 #binding-cells = <0>; \
-                tapping-term-ms = <150>; \
+                tapping-term-ms = <200>; \
                 bindings = single_tap, double_tap; \
             }
 
@@ -347,6 +348,37 @@
         // y-invert; // 縦スクロールの方向を反転
         // bindings = <&ib_wheel_scaler 1 14>;
         bindings = <&ib_wheel_scaler 1 64>;
+    };
+
+    /* Input Processorを使用したオートマウスレイヤー */
+    /* 非マウスキーを押したらタイムアウトに関係なくマウスレイヤーを抜ける */
+    /omit-if-no-ref/ zip_temp_layer: zip_temp_layer {
+        compatible = "zmk,input-processor-temp-layer";
+        #input-processor-cells = <2>;
+        excluded-positions = <
+             7  8  9 
+            19 20 21 
+            31 32 33
+        >;
+    };
+
+    /* トラックボール移動時に自動でマウスレイヤーに切り替え */
+    trackball_auto_mouse {
+        compatible = "zmk,input-listener";
+        device = <&vtrackball>;
+        input-processors = <&zip_temp_layer 7 3000>; // レイヤー7（MOUSE）に3秒間切り替え
+    };
+
+    /* 継続的なマウス移動時にタイムアウトを延長 */
+    trackball_continuous_mouse {
+        compatible = "zmk,input-listener";
+        device = <&vtrackball>;
+        input-processors = <&zip_temp_layer 7 10000>; // 継続移動時に10秒間延長
+    };
+
+    /* マウスキーを押したらタイムアウトを延長する */
+    &mkp_input_listener {
+        input-processors = <&zip_temp_layer 7 10000>; // クリック時に10秒間AMLを延長
     };
 
     /* define a resolution down scaler only for INPUT_REL_WHEEL */
