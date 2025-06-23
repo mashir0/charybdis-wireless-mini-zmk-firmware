@@ -323,7 +323,7 @@
         scale-divisor = <6>;
     };
 
-    /* マウスを遅くするモード Layer 8 */
+    /* マウスを遅くするモード Layer 8（加速度無効） */
     trackball_snipe_listener {
         compatible = "zmk,input-behavior-listener";
         device = <&vtrackball>;
@@ -332,22 +332,22 @@
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
 
-        // マウスの速度設定 multiplier/divisor
+        // マウスの速度設定 multiplier/divisor（精密操作用）
         scale-multiplier = <1>;
         scale-divisor = <6>;
     };
 
-    /* マウス 縦スクロールモード Layer 9 */
+    /* マウス スクロールモード Layer 9（縦・水平両対応） */
     trackball_scroll_listener {
         compatible = "zmk,input-behavior-listener";
         device = <&vtrackball>;
         layers = <9>;
         evt-type = <INPUT_EV_REL>;
-        x-input-code = <INPUT_REL_MISC>;
+        x-input-code = <INPUT_REL_HWHEEL>;
         y-input-code = <INPUT_REL_WHEEL>;
         // y-invert; // 縦スクロールの方向を反転
-        // bindings = <&ib_wheel_scaler 1 14>;
         bindings = <&ib_wheel_scaler 1 64>;
+        input-processors = <&inertial_scroll_processor>; // 慣性スクロール効果を追加
     };
 
     /* Input Processorを使用したオートマウスレイヤー */
@@ -362,11 +362,29 @@
         >;
     };
 
+    /* 加速度ベースの移動（Macトラックパッド風） */
+    /* 動きの速さに応じて移動量を調整 */
+    /omit-if-no-ref/ acceleration_processor: acceleration_processor {
+        compatible = "zmk,input-processor-acceleration";
+        #input-processor-cells = <0>;
+        scale = <100>; // 加速度の強度（0-255）
+        offset = <0>; // オフセット
+    };
+
+    /* 慣性スクロール（Macトラックパッド風） */
+    /* スクロールに慣性効果を追加し、自然な停止を実現 */
+    /omit-if-no-ref/ inertial_scroll_processor: inertial_scroll_processor {
+        compatible = "zmk,input-processor-inertial";
+        #input-processor-cells = <0>;
+        scale = <80>; // 慣性の強度（0-255）
+        decay = <50>; // 減衰速度（0-255）
+    };
+
     /* トラックボール移動時に自動でマウスレイヤーに切り替え */
     trackball_auto_mouse {
         compatible = "zmk,input-listener";
         device = <&vtrackball>;
-        input-processors = <&zip_temp_layer 7 5000>; // レイヤー7（MOUSE）に5秒間切り替え
+        input-processors = <&zip_temp_layer 7 5000 &acceleration_processor>; // レイヤー7（MOUSE）に5秒間切り替え + 加速度処理
     };
 
     /* define a resolution down scaler only for INPUT_REL_WHEEL */
