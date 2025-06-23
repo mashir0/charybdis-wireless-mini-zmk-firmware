@@ -67,7 +67,7 @@ layers:
   - '6'
   - '-'
   - /
-  - ''
+  - {t: ▽, type: trans}
   - ''
   - {type: held}
   - ''
@@ -85,7 +85,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   FUNCTION:
-  - ''
+  - {t: ▽, type: trans}
   - ''
   - HOME
   - UP ARROW
@@ -109,7 +109,7 @@ layers:
   - F6
   - F11
   - ''
-  - ''
+  - {t: ▽, type: trans}
   - ''
   - ''
   - {type: held}
@@ -121,13 +121,13 @@ layers:
   - F3
   - DEV TOOLS
   - ''
-  - ''
-  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   SYM:
-  - ''
+  - {t: ▽, type: trans}
   - ''
   - ''
   - ''
@@ -139,7 +139,7 @@ layers:
   - (
   - )
   - '='
-  - ''
+  - {t: ▽, type: trans}
   - ''
   - ''
   - ''
@@ -151,7 +151,7 @@ layers:
   - ^
   - '['
   - ']'
-  - ''
+  - {t: ▽, type: trans}
   - ''
   - ''
   - ''
@@ -208,8 +208,8 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - ''
-  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   MEDIA:
   - {t: ▽, type: trans}
   - TAG Z
@@ -302,9 +302,9 @@ layers:
   - WHEEL U
   - WHEEL R
   - ''
-  - HOME
-  - UP
   - END
+  - HOME
+  - ''
   - ''
   - ''
   - {t: ▽, type: trans}
@@ -313,9 +313,9 @@ layers:
   - MOVE D
   - MOVE R
   - FWD
-  - ''
   - LEFT
   - DOWN
+  - UP
   - RIGHT
   - ''
   - ''
