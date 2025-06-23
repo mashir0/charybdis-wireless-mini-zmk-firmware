@@ -347,7 +347,7 @@
         y-input-code = <INPUT_REL_WHEEL>;  // 縦スクロール
         x-invert; // 横スクロールの方向を反転
         // y-invert; // 縦スクロールの方向を反転
-        bindings = <&ib_wheel_scaler 1 128>; // スクロール速度を遅くする（64→128）
+        bindings = <&ib_wheel_scaler 1 256>; // スクロール速度を遅くする（64→128）
     };
 
     /* Input Processorを使用したオートマウスレイヤー */
@@ -356,8 +356,6 @@
         compatible = "zmk,input-processor-temp-layer";
         #input-processor-cells = <2>;
         excluded-positions = <
-                7  8
-            18 19 20 21 
                31 32 33
             12 24 39 /*ctrl, shift, backspace*/ 
         >;
@@ -457,9 +455,9 @@
 
         WORKSPACE {
             bindings = <
-&trans  &none  &none         &kp LC(UP)    &none          &none     &none  &none         &kp RC(UP)    &none          &none  &none
-&trans  &none  &kp LC(LEFT)  &kp LC(DOWN)  &kp LC(RIGHT)  &none     &none  &kp RC(LEFT)  &kp RC(DOWN)  &kp RC(RIGHT)  &none  &none
-&trans  &none  &none         &none         &none          &none     &none  &none         &none         &none          &none  &none
+&trans  &none  &none         &kp LC(UP)    &none          &none     &none         &none      &none        &none          &none  &none
+&trans  &none  &kp LC(LEFT)  &kp LC(DOWN)  &kp LC(RIGHT)  &none     &kp RC(LEFT)  &kp RC(UP) &kp RC(DOWN) &kp RC(RIGHT)  &none  &none
+&trans  &none  &none         &none         &none          &none     &none         &none  &none      &none        &none          &none
                              &trans        &trans         &trans    &trans &trans
             >;
         };
