@@ -337,19 +337,6 @@
         scale-divisor = <6>;
     };
 
-    /* マウス スクロールモード Layer 9（通常は縦スクロール、Shift押下で横スクロール） */
-    trackball_scroll_listener {
-        compatible = "zmk,input-behavior-listener";
-        device = <&vtrackball>;
-        layers = <9>;
-        evt-type = <INPUT_EV_REL>;
-        x-input-code = <INPUT_REL_MISC>;  // 元の設定に戻す
-        y-input-code = <INPUT_REL_WHEEL>;  // 縦スクロール
-        x-invert; // 横スクロールの方向を反転
-        // y-invert; // 縦スクロールの方向を反転
-        bindings = <&ib_wheel_scaler 1 256>; // スクロール速度を遅くする（64→128）
-    };
-
     /* Input Processorを使用したオートマウスレイヤー */
     /* 非マウスキーを押したらタイムアウトに関係なくマウスレイヤーを抜ける */
     /omit-if-no-ref/ zip_temp_layer: zip_temp_layer {
@@ -366,6 +353,22 @@
         compatible = "zmk,input-listener";
         device = <&vtrackball>;
         input-processors = <&zip_temp_layer 7 5000>; // レイヤー7（MOUSE）に5秒間切り替え
+    };
+
+    /*-----------------------------------------------------------
+    * マウス スクロールモード Layer 9
+    -----------------------------------------------------------*/
+    /* マウス スクロールモード Layer 9（通常は縦スクロール、Shift押下で横スクロール） */
+    trackball_scroll_listener {
+        compatible = "zmk,input-behavior-listener";
+        device = <&vtrackball>;
+        layers = <9>;
+        evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_MISC>;  // 横スクロール
+        y-input-code = <INPUT_REL_WHEEL>;  // 縦スクロール
+        x-invert; // 横スクロールの方向を反転
+        // y-invert; // 縦スクロールの方向を反転
+        bindings = <&ib_wheel_scaler 1 512>; // スクロール速度を制御（multiplier/divisor）
     };
 
     /* define a resolution down scaler only for INPUT_REL_WHEEL */
