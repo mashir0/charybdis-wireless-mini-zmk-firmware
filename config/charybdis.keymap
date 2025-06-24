@@ -351,7 +351,7 @@
     /* トラックボール移動時に自動でマウスレイヤーに切り替え */
     trackball_auto_mouse {
         compatible = "zmk,input-listener";
-        device = <&vtrackball>;
+        device = <&trackball>;
         input-processors = <&zip_temp_layer 7 5000>; // レイヤー7（MOUSE）に5秒間切り替え
     };
 
@@ -364,11 +364,12 @@
         device = <&vtrackball>;
         layers = <9>;
         evt-type = <INPUT_EV_REL>;
-        x-input-code = <INPUT_REL_MISC>;  // 横スクロール
+        x-input-code = <INPUT_REL_HWHEEL>;  // 横スクロール
         y-input-code = <INPUT_REL_WHEEL>;  // 縦スクロール
         x-invert; // 横スクロールの方向を反転
         // y-invert; // 縦スクロールの方向を反転
-        bindings = <&ib_wheel_scaler 1 2048>; // スクロール速度を制御（multiplier/divisor）
+        // bindings = <&ib_wheel_scaler 1 4096>; // スクロール速度を制御（multiplier/divisor）
+        bindings = <&ib_wheel_scaler 1 4096>, <&ib_hwheel_scaler 1 4096>;
     };
 
     /* define a resolution down scaler only for INPUT_REL_WHEEL */
