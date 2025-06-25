@@ -369,7 +369,7 @@
         x-invert; // 横スクロールの方向を反転
         // y-invert; // 縦スクロールの方向を反転
         // bindings = <&ib_wheel_scaler 1 4096>; // スクロール速度を制御（multiplier/divisor）
-        bindings = <&ib_wheel_scaler 1 10000>, <&ib_hwheel_scaler 1 10000>;
+        bindings = <&ib_wheel_scaler 1 20000>, <&ib_hwheel_scaler 1 20000>;
     };
 
     /* define a resolution down scaler only for INPUT_REL_WHEEL */
