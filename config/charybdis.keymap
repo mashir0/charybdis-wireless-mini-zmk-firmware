@@ -311,14 +311,13 @@
     /* マウスの速度設定 Layer 0, 2, 7 */
     trackball_listener {
         compatible = "zmk,input-behavior-listener";
-        device = <&vtrackball>;
+        device = <&trackball>;
         layers = <0 2 7>;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
 
         // マウスの速度設定 multiplier/divisor
-        // scale-multiplier = <4>;
         scale-multiplier = <3>;
         scale-divisor = <7>;
     };
@@ -326,7 +325,7 @@
     /* マウスを遅くするモード Layer 8（加速度無効） */
     trackball_snipe_listener {
         compatible = "zmk,input-behavior-listener";
-        device = <&vtrackball>;
+        device = <&trackball>;
         layers = <8>;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
@@ -361,7 +360,7 @@
     /* マウス スクロールモード Layer 9（通常は縦スクロール、Shift押下で横スクロール） */
     trackball_scroll_listener {
         compatible = "zmk,input-behavior-listener";
-        device = <&vtrackball>;
+        device = <&trackball>;
         layers = <9>;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_HWHEEL>;  // 横スクロール
