@@ -318,6 +318,7 @@
         y-input-code = <INPUT_REL_Y>;
 
         // マウスの速度設定 multiplier/divisor
+        // scale-multiplier = <4>;
         scale-multiplier = <3>;
         scale-divisor = <7>;
     };
@@ -368,7 +369,7 @@
         x-invert; // 横スクロールの方向を反転
         // y-invert; // 縦スクロールの方向を反転
         // bindings = <&ib_wheel_scaler 1 4096>; // スクロール速度を制御（multiplier/divisor）
-        bindings = <&ib_wheel_scaler 1 4096>, <&ib_hwheel_scaler 1 4096>;
+        bindings = <&ib_wheel_scaler 1 10000>, <&ib_hwheel_scaler 1 10000>;
     };
 
     /* define a resolution down scaler only for INPUT_REL_WHEEL */
