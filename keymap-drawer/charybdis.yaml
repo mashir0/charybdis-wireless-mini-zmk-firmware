@@ -36,7 +36,7 @@ layers:
   - ','
   - .
   - '&slh_cursor'
-  - '`'
+  - {t: '`', h: WORKSPACE}
   - '&jp_alt4'
   - '&space_num'
   - '&en_gui2'
