@@ -374,7 +374,7 @@
         // bindings = <&ib_wheel_scaler 1 4096>; // スクロール速度を制御（multiplier/divisor）
         // スクロール速度を制御（multiplier/divisor）
         scale-multiplier = <1>;
-        scale-divisor = <32>;
+        scale-divisor = <16>;
     };
 
     /* define a resolution down scaler only for INPUT_REL_WHEEL */
