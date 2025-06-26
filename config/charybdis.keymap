@@ -13,6 +13,15 @@
 / {
     combos {
         compatible = "zmk,combos";
+        Shift_LBracket {
+            bindings = <&kp LS(LEFT_BRACKET)>;
+            key-positions = <17 22>;
+        };
+
+        Shift_RBracket {
+            bindings = <&kp LS(RIGHT_BRACKET)>;
+            key-positions = <17 23>;
+        };
 
         CapsWord {
             bindings = <&caps_word>;
@@ -186,7 +195,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred"; // 
-            tapping-term-ms = <100>; // この時間以上押し続けると修飾キーとして動作
+            tapping-term-ms = <80>; // この時間以上押し続けると修飾キーとして動作
             quick-tap-ms = <150>; // この時間内に再度タップすると常に通常キーとして動作
             require-prior-idle-ms = <185>; // 前のキーからこの時間以上経過している必要がある
             bindings = <&kp>, <&kp>;
@@ -295,11 +304,14 @@
         /*-------------------------------------------------------
         * tap-dance
         -------------------------------------------------------*/
-        TAP_DANCE_2(jp_alt4,    <&hm LEFT_ALT LANG1>, <&httl 4 4>);
-        TAP_DANCE_2(en_gui2,    <&hm LEFT_GUI LANG2>, <&httl 2 2>);
         TAP_DANCE_2(esc_base,   <&lt 6 ESC>,          <&httl 0 0>);
-        TAP_DANCE_2(space_num,  <&lt 1 SPACE>,        <&httl 1 1>);
         TAP_DANCE_2(slh_cursor, <&lt 7 FSLH>,         <&httl 7 7>);
+
+        // 
+        TAP_DANCE_2(jp_alt4,    <&hm LEFT_ALT LANG1>, <&httl 4 4>);
+        TAP_DANCE_2(space_num,  <&lt 1 SPACE>,        <&httl 1 1>);
+        TAP_DANCE_2(en_gui2,    <&hm LEFT_GUI LANG2>, <&httl 2 2>);
+
     };
 };
 
@@ -371,7 +383,7 @@
         // bindings = <&ib_wheel_scaler 1 4096>; // スクロール速度を制御（multiplier/divisor）
         // スクロール速度を制御（multiplier/divisor）
         scale-multiplier = <1>;
-        scale-divisor = <2>;
+        scale-divisor = <8>;
     };
 
     /* define a resolution down scaler only for INPUT_REL_WHEEL */

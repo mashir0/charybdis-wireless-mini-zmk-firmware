@@ -421,6 +421,10 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
 combos:
+- p: [17, 22]
+  k: Sft+ [
+- p: [17, 23]
+  k: Sft+ ]
 - p: [17, 18]
   k: CAPS WORD
   l: [BASE]
