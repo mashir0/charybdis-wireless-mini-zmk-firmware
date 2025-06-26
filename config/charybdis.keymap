@@ -13,15 +13,6 @@
 / {
     combos {
         compatible = "zmk,combos";
-        Shift_LBracket {
-            bindings = <&kp LS(LEFT_BRACKET)>;
-            key-positions = <17 22>;
-        };
-
-        Shift_RBracket {
-            bindings = <&kp LS(RIGHT_BRACKET)>;
-            key-positions = <17 23>;
-        };
 
         CapsWord {
             bindings = <&caps_word>;
@@ -383,7 +374,7 @@
         // bindings = <&ib_wheel_scaler 1 4096>; // スクロール速度を制御（multiplier/divisor）
         // スクロール速度を制御（multiplier/divisor）
         scale-multiplier = <1>;
-        scale-divisor = <8>;
+        scale-divisor = <32>;
     };
 
     /* define a resolution down scaler only for INPUT_REL_WHEEL */
@@ -473,9 +464,9 @@
 
         WORKSPACE {
             bindings = <
-&trans  &none  &none         &kp LC(UP)    &none          &none     &none         &none      &none        &none          &none  &none
-&trans  &none  &kp LC(LEFT)  &kp LC(DOWN)  &kp LC(RIGHT)  &none     &kp RC(LEFT)  &kp RC(UP) &kp RC(DOWN) &kp RC(RIGHT)  &none  &none
-&trans  &none  &none         &none         &none          &none     &none         &none      &none        &none          &none  &none
+&trans  &none  &none         &kp LC(UP)    &none          &none     &none         &none      &none        &none          &none                &none
+&trans  &none  &kp LC(LEFT)  &kp LC(DOWN)  &kp LC(RIGHT)  &none     &kp RC(LEFT)  &kp RC(UP) &kp RC(DOWN) &kp RC(RIGHT)  &kp RS(LEFT_BRACKET) &kp RS(RIGHT_BRACKET)
+&trans  &none  &none         &none         &none          &none     &none         &none      &none        &none          &none                &none
                              &trans        &trans         &trans    &trans        &trans
             >;
         };
