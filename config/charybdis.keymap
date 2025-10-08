@@ -323,7 +323,7 @@
         // マウスの速度設定 multiplier/divisor
         // scale-multiplier = <4>;
         scale-multiplier = <3>;
-        scale-divisor = <7>;
+        scale-divisor = <9>;
     };
 
     /* マウスを遅くするモード Layer 8（加速度無効） */
@@ -337,7 +337,7 @@
 
         // マウスの速度設定 multiplier/divisor（精密操作用）
         scale-multiplier = <1>;
-        scale-divisor = <6>;
+        scale-divisor = <7>;
     };
 
     /* Input Processorを使用したオートマウスレイヤー */
@@ -437,8 +437,8 @@
 
         NUM {
             bindings = <
-&trans  &none  &none  &none   &none          &none        &kp ASTRK    &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PLUS   &kp ASTRK
-&trans  &none  &none  &none   &none          &none        &kp MINUS    &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS  &kp SLASH
+&trans  &none  &none  &none   &none          &none        &kp ASTRK    &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PLUS   &kp MINUS
+&trans  &none  &none  &none   &none          &none        &kp MINUS    &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp ASTRK  &kp SLASH
 &trans  &none  &none  &none   &kp BACKSPACE  &kp SPACE    &kp NUMBER_0 &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp DOT    &td_equals
                       &trans  &trans         &trans       &trans     &trans
             >;
@@ -473,11 +473,10 @@
 
         MEDIA {
             bindings = <
-&trans  &kp LA(LC(LS(Z)))  &kp LA(LC(LS(E)))  &kp LA(LC(LS(A)))  &kp LA(LC(LS(S)))  &kp LA(LC(LS(B)))    &kp C_BRIGHTNESS_INC  &none     &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_STOP         &kp C_NEXT
-&trans  &kp LEFT           &kp DOWN           &kp UP             &kp RIGHT          &kp LCTRL            &kp C_BRIGHTNESS_DEC  &none     &kp UP_ARROW    &kp K_MUTE        &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
-&trans  &kp LA(LS(A))      &kp LA(KP_N1)      &kp LA(KP_N2)      &kp LA(KP_N3)      &none                &none                 &kp LEFT  &kp DOWN        &kp RIGHT         &none              &none
-
-                                                      &trans             &trans             &trans               &trans                &trans
+&trans  &kp LA(LC(LS(Z)))  &kp LA(LC(LS(E)))  &kp LA(LC(LS(A)))  &kp LA(LC(LS(S)))  &kp LA(LC(LS(B)))    &none     &none     &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_STOP         &kp C_NEXT
+&trans  &kp LEFT           &kp DOWN           &kp UP             &kp RIGHT          &kp LCTRL            &kp LEFT  &kp UP    &kp DOWN        &kp RIGHT         &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
+&trans  &kp LA(LS(A))      &kp LA(KP_N1)      &kp LA(KP_N2)      &kp LA(KP_N3)      &none                &none     &none     &none           &none             &none              &kp K_MUTE
+                                              &trans             &trans             &trans               &trans    &trans
             >;
         };
 
