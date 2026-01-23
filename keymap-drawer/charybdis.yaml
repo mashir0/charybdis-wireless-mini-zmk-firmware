@@ -25,7 +25,7 @@ layers:
   - L
   - ;
   - ''''
-  - {t: SEARCH, h: LEFT SHIFT}
+  - LEFT SHIFT
   - {t: Z, h: BASE}
   - {t: X, h: NUM}
   - {t: C, h: FUNCTION}
@@ -37,9 +37,9 @@ layers:
   - .
   - '&slh_cursor'
   - {t: '`', h: WORKSPACE}
-  - '&jp_alt4'
-  - '&space_num'
-  - '&en_gui2'
+  - {t: LANG1, h: LEFT ALT}
+  - {t: SPACE, h: NUM}
+  - {t: LANG2, h: LEFT GUI}
   - {t: BACK SPACE, h: SYM}
   - {t: ENTER, h: MEDIA}
   NUM:
@@ -54,7 +54,7 @@ layers:
   - '8'
   - '9'
   - +
-  - '*'
+  - '-'
   - {t: ▽, type: trans}
   - ''
   - ''
@@ -65,7 +65,7 @@ layers:
   - '4'
   - '5'
   - '6'
-  - '-'
+  - '*'
   - /
   - {t: ▽, type: trans}
   - ''
@@ -161,7 +161,7 @@ layers:
   - '!'
   - '@'
   - '#'
-  - \
+  - /
   - \
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -201,7 +201,7 @@ layers:
   - ''
   - ''
   - ''
-  - ''
+  - Ctl+ @
   - ''
   - ''
   - ''
@@ -217,36 +217,36 @@ layers:
   - TAG A
   - TAG S
   - TAG B
-  - BRIGHTNESS INC
+  - ''
   - ''
   - PREVIOUS
   - PLAY PAUSE
   - STOP
   - NEXT
-  - FIT
+  - {t: ▽, type: trans}
   - LEFT
   - DOWN
   - {t: UP, type: held}
   - RIGHT
   - LCTRL
-  - BRIGHTNESS DEC
-  - ''
-  - UP ARROW
-  - MUTE
+  - LEFT
+  - UP
+  - DOWN
+  - RIGHT
   - VOLUME DOWN
   - VOLUME UP
-  - SHRED
+  - {t: ▽, type: trans}
   - SHOW TAGS
   - REJECT
   - PENDING
   - ACCEPT
   - ''
   - ''
-  - LEFT
-  - DOWN
-  - RIGHT
   - ''
   - ''
+  - ''
+  - ''
+  - MUTE
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
