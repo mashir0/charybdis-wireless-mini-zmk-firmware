@@ -8,6 +8,21 @@
 #include <dt-bindings/zmk/input_transform.h>
 #include <input/processors.dtsi>
 
+#define L_BASE      0
+#define L_NUM       1
+#define L_FUNC      2
+#define L_SYM       3
+#define L_WORK      4
+#define L_MEDIA     5
+#define L_EXTRAS    6
+#define L_MOUSE     7
+#define L_SLOW      8
+#define L_SCROLL    9
+
+#define D_KANA      LANG1
+#define D_EN        LANG2
+
+
 /*-------------------------------------------------------
 * combos
 -------------------------------------------------------*/
@@ -296,11 +311,12 @@
         /*-------------------------------------------------------
         * tap-dance
         -------------------------------------------------------*/
-        TAP_DANCE_2(esc_base,   <&lt 6 ESC>,          <&httl 0 0>);
-        TAP_DANCE_2(slh_cursor, <&lt 7 FSLH>,         <&httl 7 7>); //                                                          //#1tap  #hold    #2tap         #hold
-        TAP_DANCE_2(jp_alt4,    <&hm LEFT_ALT LANG1>, <&httl 4 4>); //LANG1  GUI      Toggle L-WS   L-WS 
-        TAP_DANCE_2(space_num,  <&lt 1 SPACE>,        <&httl 1 1>); //SPACE, L-NUM    Toggle L-NUM  L-NUM
-        TAP_DANCE_2(en_gui2,    <&hm LEFT_GUI LANG2>, <&httl 2 2>); //LANG2, Alt      Toggle L-FUNC L-FUNC
+                                                                     //#1tap  #hold    #2tap         #hold
+        TAP_DANCE_2(esc_base,   <&lt L_EXTRAS ESC>,    <&httl 0 0>); //ESC    L_EXTRAS Toggle EXTRA  EXTRA
+        TAP_DANCE_2(slh_cursor, <&lt L_MOUSE FSLH>,    <&httl 7 7>); //FSLH   L_MOUSE  Toggle MOUSE MOUSE
+        // TAP_DANCE_2(jp_alt4,    <&hm LEFT_ALT D_KANA>, <&httl 4 4>); //LANG1  D_KANA   Toggle L-WS   L-WS 
+        // TAP_DANCE_2(space_num,  <&lt L_NUM    SPACE>,  <&httl 1 1>); //SPACE  L_NUM    Toggle L-NUM  L-NUM
+        // TAP_DANCE_2(en_gui2,    <&hm LEFT_GUI D_EN>,   <&httl 2 2>); //LANG2  D_EN     Toggle L-FUNC L-FUNC
 
     };
 };
@@ -320,7 +336,7 @@
             layers = <9>;
             input-processors = <&zip_xy_to_scroll_mapper
                                 &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)
-                                &zip_scroll_scaler 1 64>;
+                                &zip_scroll_scaler 1 32>;
         };
 
         /* マウスを遅くするモード Layer 8（精密操作用） */
@@ -342,7 +358,7 @@
         compatible = "zmk,input-processor-temp-layer";
         #input-processor-cells = <2>;
         excluded-positions = <
-               31 32 33
+            31 32 33
             12 24 39 /*ctrl, shift, backspace*/ 
         >;
     };
@@ -354,9 +370,6 @@
         input-processors = <&zip_temp_layer 7 5000>; // レイヤー7（MOUSE）に5秒間切り替え
     };
 
-    /*-----------------------------------------------------------
-    * マウス スクロールモード Layer 9
-    -----------------------------------------------------------*/
 
     // ╭──────┬──────┬──────┬──────┬──────┬──────╮  ╭──────┬──────┬──────┬──────┬──────┬──────╮
     //    00     01     02     03    04      05        06     07     08     09     10     11
@@ -367,29 +380,15 @@
     // ╰──────┴──────┴──────┼──────┼──────┼──────┤  ├──────┼──────┼──────┴──────┴──────┴──────╯
     //                         36     37     38        39     40
     //                      ╰──────┴──────┴──────╯  ╰──────┴──────╯
-    #define L_BASE      0
-    #define L_NUM       1
-    #define L_FUNC      2
-    #define L_SYM       3
-    #define L_WORK      4
-    #define L_MEDIA     5
-    #define L_EXTRAS    6
-    #define L_MOUSE     7
-    #define L_SLOW      8
-    #define L_SCROLL    9
-
-    #define D_KANA      LANG1
-    #define D_EN        LANG2
-
 
     keymap {
         compatible = "zmk,keymap";
 
         BASE {
             bindings = <
-              &esc_base      &kp Q    &lt 7 W  &kp E     &kp R       &kp T       &kp Y         &kp U            &kp I      &kp O       &kp P          &kp MINUS
-              &hm LCTRL TAB  &kp A    &lt 4 S  &lt 5 D   &lt 6 F     &kp G       &kp H         &kp J            &kp K      &kp L       &kp SEMICOLON  &kp APOSTROPHE
-              &kp LEFT_SHIFT &lt 0 Z  &lt 1 X  &lt 2 C   &lt 3 V     &kp B       &kp N         &kp M            &kp COMMA  &kp PERIOD  &slh_cursor    &lt 4 GRAVE
+              &esc_base      &kp Q  &kp W  &kp E  &kp R          &kp T       &kp Y  &kp U  &kp I      &kp O       &kp P          &kp MINUS
+              &hm LCTRL TAB  &kp A  &kp S  &kp D  &lt L_FUNC F   &kp G       &kp H  &kp J  &kp K      &kp L       &kp SEMICOLON  &kp APOSTROPHE
+              &kp LEFT_SHIFT &kp Z  &kp X  &kp C  &kp V          &kp B       &kp N  &kp M  &kp COMMA  &kp PERIOD  &slh_cursor    &lt L_WORK GRAVE
 
               &hm LEFT_ALT D_KANA     &lt L_NUM   SPACE  &hm LEFT_GUI D_EN
               &lt L_SYM    BACKSPACE  &lt L_MEDIA ENTER 
