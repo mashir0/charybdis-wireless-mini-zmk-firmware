@@ -311,15 +311,9 @@
         /*-------------------------------------------------------
         * tap-dance
         -------------------------------------------------------*/
-<<<<<<< HEAD
                                                                                    //#1tap  #hold    #2tap         #hold
         TAP_DANCE_2(esc_base,   <&lt L_EXTRAS ESC>,    <&httl L_EXTRAS L_EXTRAS>); //ESC    L_EXTRAS Toggle EXTRA  EXTRA
         TAP_DANCE_2(slh_cursor, <&lt L_MOUSE FSLH>,    <&httl L_MOUSE L_MOUSE>);   //FSLH   L_MOUSE  Toggle MOUSE MOUSE
-=======
-                                                                     //#1tap  #hold    #2tap         #hold
-        TAP_DANCE_2(esc_base,   <&lt L_EXTRAS ESC>,    <&httl 0 0>); //ESC    L_EXTRAS Toggle EXTRA  EXTRA
-        TAP_DANCE_2(slh_cursor, <&lt L_MOUSE FSLH>,    <&httl 7 7>); //FSLH   L_MOUSE  Toggle MOUSE MOUSE
->>>>>>> 18ac2c0cfee77b245bf193b90ee62ba71777be52
         // TAP_DANCE_2(jp_alt4,    <&hm LEFT_ALT D_KANA>, <&httl 4 4>); //LANG1  D_KANA   Toggle L-WS   L-WS 
         // TAP_DANCE_2(space_num,  <&lt L_NUM    SPACE>,  <&httl 1 1>); //SPACE  L_NUM    Toggle L-NUM  L-NUM
         // TAP_DANCE_2(en_gui2,    <&hm LEFT_GUI D_EN>,   <&httl 2 2>); //LANG2  D_EN     Toggle L-FUNC L-FUNC
