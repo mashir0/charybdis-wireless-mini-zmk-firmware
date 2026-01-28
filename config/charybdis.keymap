@@ -311,9 +311,9 @@
         /*-------------------------------------------------------
         * tap-dance
         -------------------------------------------------------*/
-                                                                     //#1tap  #hold    #2tap         #hold
-        TAP_DANCE_2(esc_base,   <&lt L_EXTRAS ESC>,    <&httl 0 0>); //ESC    L_EXTRAS Toggle EXTRA  EXTRA
-        TAP_DANCE_2(slh_cursor, <&lt L_MOUSE FSLH>,    <&httl 7 7>); //FSLH   L_MOUSE  Toggle MOUSE MOUSE
+                                                                                   //#1tap  #hold    #2tap         #hold
+        TAP_DANCE_2(esc_base,   <&lt L_EXTRAS ESC>,    <&httl L_EXTRAS L_EXTRAS>); //ESC    L_EXTRAS Toggle EXTRA  EXTRA
+        TAP_DANCE_2(slh_cursor, <&lt L_MOUSE FSLH>,    <&httl L_MOUSE L_MOUSE>);   //FSLH   L_MOUSE  Toggle MOUSE MOUSE
         // TAP_DANCE_2(jp_alt4,    <&hm LEFT_ALT D_KANA>, <&httl 4 4>); //LANG1  D_KANA   Toggle L-WS   L-WS 
         // TAP_DANCE_2(space_num,  <&lt L_NUM    SPACE>,  <&httl 1 1>); //SPACE  L_NUM    Toggle L-NUM  L-NUM
         // TAP_DANCE_2(en_gui2,    <&hm LEFT_GUI D_EN>,   <&httl 2 2>); //LANG2  D_EN     Toggle L-FUNC L-FUNC
@@ -398,82 +398,99 @@
 
         NUM {
             bindings = <
-&trans  &none  &none  &none   &none          &none        &kp ASTRK    &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PLUS   &kp MINUS
-&trans  &none  &none  &none   &none          &none        &kp MINUS    &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp ASTRK  &kp SLASH
-&trans  &none  &none  &none   &kp BACKSPACE  &kp SPACE    &kp NUMBER_0 &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp DOT    &td_equals
-                      &trans  &trans         &trans       &trans     &trans
+              &trans  &none  &none  &none   &none          &none        &kp ASTRK    &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PLUS   &kp MINUS
+              &trans  &none  &none  &none   &none          &none        &kp MINUS    &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp ASTRK  &kp SLASH
+              &trans  &none  &none  &none   &kp BACKSPACE  &kp SPACE    &kp NUMBER_0 &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp DOT    &td_equals
+              
+              &trans  &trans  &trans
+              &trans  &trans
             >;
         };
 
         FUNCTION {
             bindings = <
-&trans  &none   &kp HOME  &kp UP_ARROW    &kp END    &none     &none   &kp F7  &kp F8  &kp F9  &kp F10  &none
-&trans  &trans  &kp LEFT  &kp DOWN_ARROW  &kp RIGHT  &none     &none   &kp F4  &kp F5  &kp F6  &kp F11  &none
-&trans  &none   &none     &none           &none      &none     &none   &kp F1  &kp F2  &kp F3  &kp F12  &none
-                          &trans          &trans     &trans    &trans  &trans
+              &trans  &none   &kp HOME  &kp UP_ARROW    &kp END    &none     &none   &kp F7  &kp F8  &kp F9  &kp F10  &none
+              &trans  &trans  &kp LEFT  &kp DOWN_ARROW  &kp RIGHT  &none     &none   &kp F4  &kp F5  &kp F6  &kp F11  &none
+              &trans  &none   &none     &none           &none      &none     &none   &kp F1  &kp F2  &kp F3  &kp F12  &none
+              
+              &trans  &trans  &trans 
+              &trans  &trans
             >;
         };
 
         SYM {
             bindings = <
-&trans  &none  &none  &none   &none   &none     &none       &kp AMPS    &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp EQUAL
-&trans  &none  &none  &none   &trans  &none     &td_hyphen  &kp DOLLAR  &kp PERCENT   &kp CARET             &kp LEFT_BRACKET       &kp RIGHT_BRACKET
-&trans  &none  &none  &none   &none   &none     &none       &kp EXCL    &kp AT        &kp HASH              &kp SLASH          &kp BSLH
-                     &trans  &trans  &trans    &trans      &trans
+              &trans  &none  &none  &none   &none   &none     &none       &kp AMPS    &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp EQUAL
+              &trans  &none  &none  &none   &trans  &none     &td_hyphen  &kp DOLLAR  &kp PERCENT   &kp CARET             &kp LEFT_BRACKET       &kp RIGHT_BRACKET
+              &trans  &none  &none  &none   &none   &none     &none       &kp EXCL    &kp AT        &kp HASH              &kp SLASH          &kp BSLH
+
+              &trans  &trans  &trans 
+              &trans  &trans
             >;
         };
 
         WORKSPACE {
             bindings = <
-&trans  &none  &none         &kp LC(UP)    &none          &none     &none         &none      &none        &none          &none                &none
-&trans  &none  &kp LC(LEFT)  &kp LC(DOWN)  &kp LC(RIGHT)  &none     &kp RC(LEFT)  &kp RC(UP) &kp RC(DOWN) &kp RC(RIGHT)  &kp RS(LEFT_BRACKET) &kp RS(RIGHT_BRACKET)
-&trans  &none  &none         &none         &none          &none     &none         &none      &kp RC(AT)   &none          &none                &none
-                             &trans        &trans         &trans    &trans        &trans
+              &trans  &none  &none         &kp LC(UP)    &none          &none     &none         &none      &none        &none          &none                &none
+              &trans  &none  &kp LC(LEFT)  &kp LC(DOWN)  &kp LC(RIGHT)  &none     &kp RC(LEFT)  &kp RC(UP) &kp RC(DOWN) &kp RC(RIGHT)  &kp RS(LEFT_BRACKET) &kp RS(RIGHT_BRACKET)
+              &trans  &none  &none         &none         &none          &none     &none         &none      &kp RC(AT)   &none          &none                &none
+              
+              &trans  &trans  &trans 
+              &trans  &trans
             >;
         };
 
         MEDIA {
             bindings = <
-&trans  &kp LA(LC(LS(Z)))  &kp LA(LC(LS(E)))  &kp LA(LC(LS(A)))  &kp LA(LC(LS(S)))  &kp LA(LC(LS(B)))    &none     &none     &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_STOP         &kp C_NEXT
-&trans  &kp LEFT           &kp DOWN           &kp UP             &kp RIGHT          &kp LCTRL            &kp LEFT  &kp UP    &kp DOWN        &kp RIGHT         &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
-&trans  &kp LA(LS(A))      &kp LA(KP_N1)      &kp LA(KP_N2)      &kp LA(KP_N3)      &none                &none     &none     &none           &none             &none              &kp K_MUTE
-                                              &trans             &trans             &trans               &trans    &trans
+              &trans  &kp LA(LC(LS(Z)))  &kp LA(LC(LS(E)))  &kp LA(LC(LS(A)))  &kp LA(LC(LS(S)))  &kp LA(LC(LS(B)))    &none     &none     &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_STOP         &kp C_NEXT
+              &trans  &kp LEFT           &kp DOWN           &kp UP             &kp RIGHT          &kp LCTRL            &kp LEFT  &kp UP    &kp DOWN        &kp RIGHT         &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
+              &trans  &kp LA(LS(A))      &kp LA(KP_N1)      &kp LA(KP_N2)      &kp LA(KP_N3)      &none                &none     &none     &none           &none             &none              &kp K_MUTE
+
+              &trans  &trans  &trans 
+              &trans  &trans
             >;
         };
 
         EXTRAS {
             bindings = <
-&kp C_POWER      &none  &none  &none  &out OUT_BLE  &out OUT_USB    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &out OUT_TOG  &bt BT_CLR
-&kp C_SLEEP      &sudo  &none  &none  &none         &none           &none         &none         &none         &none         &none         &none
-&kp C_AL_COFFEE  &none  &none  &none  &none         &bootloader     &bootloader   &none         &none         &none         &none         &studio_unlock
-                               &none  &none         &none           &none         &none
+              &kp C_POWER      &none  &none  &none  &out OUT_BLE  &out OUT_USB    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &out OUT_TOG  &bt BT_CLR
+              &kp C_SLEEP      &sudo  &none  &none  &none         &none           &none         &none         &none         &none         &none         &none
+              &kp C_AL_COFFEE  &none  &none  &none  &none         &bootloader     &bootloader   &none         &none         &none         &none         &studio_unlock
+              &none  &none  &none
+              &none  &none
             >;
         };
 
         MOUSE {
             bindings = <
-&trans  &msc MOVE_LEFT  &msc MOVE_UP    &mmv MOVE_UP    &msc MOVE_DOWN   &msc MOVE_RIGHT    &none    &kp END    &kp HOME   &none       &none  &none
-&trans  &mkp MB4        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp MB5           &kp LEFT &kp DOWN   &kp UP     &kp RIGHT   &none  &none
-&trans  &kp C_AC_UNDO   &kp C_AC_CUT    &kp C_AC_COPY   &kp C_AC_PASTE   &mkp MCLK          &none    &mkp LCLK  &mkp RCLK  &td_cursor  &none  &none
-                                        &trans          &trans           &trans             &trans   &trans
+              &trans  &msc MOVE_LEFT  &msc MOVE_UP    &mmv MOVE_UP    &msc MOVE_DOWN   &msc MOVE_RIGHT    &none    &kp END    &kp HOME   &none       &none  &none
+              &trans  &mkp MB4        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp MB5           &kp LEFT &kp DOWN   &kp UP     &kp RIGHT   &none  &none
+              &trans  &kp C_AC_UNDO   &kp C_AC_CUT    &kp C_AC_COPY   &kp C_AC_PASTE   &mkp MCLK          &none    &mkp LCLK  &mkp RCLK  &td_cursor  &none  &none
+              
+              &trans  &trans  &trans 
+              &trans  &trans
             >;
         };
 
         SLOW {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans
+              &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+              &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+              &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+              
+              &trans  &trans  &trans 
+              &trans  &trans
             >;
         };
 
         SCROLL {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans
+              &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+              &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+              &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+              
+              &trans  &trans  &trans 
+              &trans  &trans
             >;
         };
     };
