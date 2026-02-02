@@ -179,8 +179,8 @@ layers:
   - ''
   - ''
   - ''
-  - ''
-  - ''
+  - Gui+ [
+  - Gui+ ]
   - {t: ▽, type: trans}
   - ''
   - Ctl+ LEFT
