@@ -338,7 +338,7 @@
 
         // マウスの速度設定 multiplier/divisor
         scale-multiplier = <1>;
-        scale-divisor = <10>;
+        scale-divisor = <6>;
     };
 
     /* マウスを遅くするモード Layer 8（加速度無効） */
@@ -352,7 +352,7 @@
 
         // マウスの速度設定 multiplier/divisor（精密操作用）
         scale-multiplier = <1>;
-        scale-divisor = <7>;
+        scale-divisor = <9>;
     };
 
     /* Input Processorを使用したオートマウスレイヤー */
@@ -383,9 +383,9 @@
         layers = <9>;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_MISC>;  // 横スクロール
-        y-input-code = <INPUT_REL_WHEEL>;  // 縦スクロール
-        x-invert; // 横スクロールの方向を反転
-        bindings = <&ib_wheel_scaler 1 64>;
+        y-input-code = <INPUT_REL_WHEEL>; // 縦スクロール
+        x-invert;                         // 横スクロールの方向を反転
+        bindings = <&ib_wheel_scaler 1 8>; // スクロールの解像度を調整
     };
 
     /* define a resolution down scaler only for INPUT_REL_WHEEL */
@@ -394,6 +394,7 @@
         compatible = "zmk,input-behavior-scaler";
         #binding-cells = <2>;
         evt-type = <INPUT_EV_REL>;
+        /* input-code を指定しない、または両方に対応させる設定を確認してください */
         input-code = <INPUT_REL_WHEEL>;
     };
 
