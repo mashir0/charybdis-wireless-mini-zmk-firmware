@@ -3,7 +3,7 @@ layers:
   BASE:
   - '&esc_base'
   - Q
-  - {t: W, h: MOUSE}
+  - W
   - E
   - R
   - T
@@ -15,9 +15,9 @@ layers:
   - '-'
   - {t: TAB, h: LCTRL}
   - A
-  - {t: S, h: WORKSPACE}
-  - {t: D, h: MEDIA}
-  - {t: F, h: EXTRAS}
+  - S
+  - D
+  - {t: F, h: FUNCTION}
   - G
   - H
   - J
@@ -26,10 +26,10 @@ layers:
   - ;
   - ''''
   - LEFT SHIFT
-  - {t: Z, h: BASE}
-  - {t: X, h: NUM}
-  - {t: C, h: FUNCTION}
-  - {t: V, h: SYM}
+  - Z
+  - X
+  - C
+  - V
   - B
   - N
   - M
@@ -69,7 +69,7 @@ layers:
   - /
   - {t: ▽, type: trans}
   - ''
-  - {type: held}
+  - ''
   - ''
   - BACK SPACE
   - SPACE
@@ -80,7 +80,7 @@ layers:
   - .
   - '='
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -101,7 +101,7 @@ layers:
   - {t: ▽, type: trans}
   - LEFT
   - DOWN ARROW
-  - RIGHT
+  - {t: RIGHT, type: held}
   - ''
   - ''
   - F4
@@ -112,7 +112,7 @@ layers:
   - {t: ▽, type: trans}
   - ''
   - ''
-  - {type: held}
+  - ''
   - ''
   - ''
   - ''
@@ -155,7 +155,7 @@ layers:
   - ''
   - ''
   - ''
-  - {type: held}
+  - ''
   - ''
   - ''
   - '!'
@@ -166,7 +166,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: held}
   - {t: ▽, type: trans}
   WORKSPACE:
   - {t: ▽, type: trans}
@@ -179,11 +179,11 @@ layers:
   - ''
   - ''
   - ''
-  - ''
-  - ''
+  - Gui+ [
+  - Gui+ ]
   - {t: ▽, type: trans}
   - ''
-  - {t: Ctl+ LEFT, type: held}
+  - Ctl+ LEFT
   - Ctl+ DOWN
   - Ctl+ RIGHT
   - ''
@@ -204,7 +204,7 @@ layers:
   - Ctl+ @
   - ''
   - ''
-  - ''
+  - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -226,7 +226,7 @@ layers:
   - {t: ▽, type: trans}
   - LEFT
   - DOWN
-  - {t: UP, type: held}
+  - UP
   - RIGHT
   - LCTRL
   - LEFT
@@ -251,7 +251,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: held}
   EXTRAS:
   - POWER
   - ''
@@ -269,7 +269,7 @@ layers:
   - '&sudo'
   - ''
   - ''
-  - {type: held}
+  - ''
   - ''
   - ''
   - ''
@@ -297,7 +297,7 @@ layers:
   MOUSE:
   - {t: ▽, type: trans}
   - WHEEL L
-  - {t: WHEEL D, type: held}
+  - WHEEL D
   - MOVE UP
   - WHEEL U
   - WHEEL R

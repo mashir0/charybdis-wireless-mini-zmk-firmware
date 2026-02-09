@@ -9,7 +9,7 @@
 #include <input/processors.dtsi>
 
 #define L_BASE      0
-#dpfine L_NUM       1
+#define L_NUM       1
 #define L_FUNC      2
 #define L_SYM       3
 #define L_WORK      4
