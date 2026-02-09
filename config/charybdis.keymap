@@ -337,7 +337,7 @@
         y-input-code = <INPUT_REL_Y>;
 
         // マウスの速度設定 multiplier/divisor
-        scale-multiplier = <3>;
+        scale-multiplier = <1>;
         scale-divisor = <9>;
     };
 
