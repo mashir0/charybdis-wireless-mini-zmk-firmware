@@ -35,7 +35,7 @@ layers:
   - M
   - ','
   - .
-  - '&slh_cursor'
+  - /
   - {t: '`', h: WORKSPACE}
   - {t: LANG1, h: LEFT ALT}
   - {t: SPACE, h: NUM}
@@ -296,35 +296,35 @@ layers:
   - ''
   MOUSE:
   - {t: ▽, type: trans}
-  - WHEEL L
-  - WHEEL D
-  - MOVE UP
-  - WHEEL U
-  - WHEEL R
   - ''
-  - END
-  - HOME
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: ▽, type: trans}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
   - ''
   - ''
   - ''
   - {t: ▽, type: trans}
-  - BACK
-  - MOVE L
-  - MOVE D
-  - MOVE R
-  - FWD
-  - LEFT
-  - DOWN
-  - UP
-  - RIGHT
   - ''
   - ''
-  - {t: ▽, type: trans}
-  - UNDO
-  - CUT
-  - COPY
-  - PASTE
-  - Mid CLK
+  - ''
+  - ''
+  - ''
   - ''
   - L CLK
   - R CLK
