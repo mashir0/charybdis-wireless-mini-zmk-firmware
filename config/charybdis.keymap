@@ -193,7 +193,7 @@
             name: name { \
                 compatible = "zmk,behavior-tap-dance"; \
                 #binding-cells = <0>; \
-                tapping-term-ms = <200>; \
+                tapping-term-ms = <300>; \
                 bindings = single_tap, double_tap; \
             }
 
@@ -426,7 +426,7 @@
               &kp LEFT_SHIFT &kp Z  &kp X  &kp C  &kp V          &kp B       &kp N  &kp M  &kp COMMA  &kp PERIOD  &kp FSLH       &lt L_WORK GRAVE
 
               &hm LEFT_ALT D_KANA     &lt L_NUM   SPACE  &hm LEFT_GUI D_EN
-              &lt L_SYM    BACKSPACE  &lt L_MEDIA ENTER 
+              &bs_sym_num             &lt L_MEDIA ENTER 
             >;
         };
                                 //  &jp_alt4  &space_num  &en_gui2    &lt 3 BACKSPACE &lt 5 ENTER 
