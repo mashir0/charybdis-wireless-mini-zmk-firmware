@@ -193,7 +193,7 @@
             name: name { \
                 compatible = "zmk,behavior-tap-dance"; \
                 #binding-cells = <0>; \
-                tapping-term-ms = <300>; \
+                tapping-term-ms = <200>; \
                 bindings = single_tap, double_tap; \
             }
 
@@ -202,7 +202,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred"; // 
-            tapping-term-ms = <80>; // この時間以上押し続けると修飾キーとして動作
+            tapping-term-ms = <120>; // この時間以上押し続けると修飾キーとして動作
             quick-tap-ms = <150>; // この時間内に再度タップすると常に通常キーとして動作
             require-prior-idle-ms = <185>; // 前のキーからこの時間以上経過している必要がある
             bindings = <&kp>, <&kp>;
@@ -313,7 +313,7 @@
         -------------------------------------------------------*/
                                                                           //#1tap     #hold    #2tap         #hold
         TAP_DANCE_2(esc_base,   <&lt L_EXTRAS ESC>,       <&tog L_BASE>); //ESC       L_EXTRAS Toggle BASE
-        TAP_DANCE_2(bs_sym_num, <&lt L_NUM    BACKSPACE>, <&mo  L_SYM>);  //BACKSPACE L_NUM    2tap-hold SYM
+        TAP_DANCE_2(bs_sym_num, <&lt L_SYM    BACKSPACE>, <&mo  L_NUM>);  //BACKSPACE L_NUM    2tap-hold SYM
         // TAP_DANCE_2(slh_cursor, <&lt L_MOUSE FSLH>,    <&httl L_MOUSE L_MOUSE>);   //FSLH      L_MOUSE  Toggle MOUSE MOUSE
         // TAP_DANCE_2(jp_alt4,    <&hm LEFT_ALT D_KANA>, <&httl 4 4>); //LANG1  D_KANA   Toggle L-WS   L-WS 
         // TAP_DANCE_2(space_num,  <&lt L_NUM    SPACE>,  <&httl 1 1>); //SPACE  L_NUM    Toggle L-NUM  L-NUM
@@ -426,7 +426,7 @@
               &kp LEFT_SHIFT &kp Z  &kp X  &kp C  &kp V          &kp B       &kp N  &kp M  &kp COMMA  &kp PERIOD  &kp FSLH       &lt L_WORK GRAVE
 
               &hm LEFT_ALT D_KANA     &lt L_NUM   SPACE  &hm LEFT_GUI D_EN
-              &bs_sym_num             &lt L_MEDIA ENTER 
+              &lt L_SYM BACKSPACE     &lt L_MEDIA ENTER 
             >;
         };
                                 //  &jp_alt4  &space_num  &en_gui2    &lt 3 BACKSPACE &lt 5 ENTER 
