@@ -193,7 +193,7 @@
             name: name { \
                 compatible = "zmk,behavior-tap-dance"; \
                 #binding-cells = <0>; \
-                tapping-term-ms = <200>; \
+                tapping-term-ms = <300>; \
                 bindings = single_tap, double_tap; \
             }
 
