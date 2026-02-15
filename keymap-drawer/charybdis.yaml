@@ -40,7 +40,7 @@ layers:
   - {t: LANG1, h: LEFT ALT}
   - {t: SPACE, h: NUM}
   - {t: LANG2, h: LEFT GUI}
-  - '&bs_sym_num'
+  - {t: BACK SPACE, h: SYM}
   - {t: ENTER, h: MEDIA}
   NUM:
   - {t: ▽, type: trans}
@@ -166,7 +166,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: held}
   - {t: ▽, type: trans}
   WORKSPACE:
   - {t: ▽, type: trans}
@@ -414,7 +414,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - RIGHT SHIFT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
