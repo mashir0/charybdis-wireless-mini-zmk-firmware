@@ -188,8 +188,8 @@ layers:
   - Ctl+ RIGHT
   - ''
   - Ctl+ LEFT
-  - Ctl+ UP
   - Ctl+ DOWN
+  - Ctl+ UP
   - Ctl+ RIGHT
   - Sft+ [
   - Sft+ ]
@@ -230,8 +230,8 @@ layers:
   - RIGHT
   - LCTRL
   - LEFT
-  - UP
   - DOWN
+  - UP
   - RIGHT
   - VOLUME DOWN
   - VOLUME UP
