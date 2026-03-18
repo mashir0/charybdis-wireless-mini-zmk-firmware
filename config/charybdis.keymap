@@ -311,13 +311,13 @@
         /*-------------------------------------------------------
         * tap-dance
         -------------------------------------------------------*/
-                                                                          //#1tap     #hold    #2tap         #hold
-        TAP_DANCE_2(esc_base,   <&lt L_EXTRAS ESC>,       <&tog L_BASE>); //ESC       L_EXTRAS Toggle BASE
-        TAP_DANCE_2(bs_sym_num, <&lt L_SYM    BACKSPACE>, <&mo  L_NUM>);  //BACKSPACE L_NUM    2tap-hold SYM
-        // TAP_DANCE_2(slh_cursor, <&lt L_MOUSE FSLH>,    <&httl L_MOUSE L_MOUSE>);   //FSLH      L_MOUSE  Toggle MOUSE MOUSE
-        // TAP_DANCE_2(jp_alt4,    <&hm LEFT_ALT D_KANA>, <&httl 4 4>); //LANG1  D_KANA   Toggle L-WS   L-WS 
+                                                                                     //#1tap     #hold    #2tap         #hold
+        TAP_DANCE_2(esc_base,   <&lt L_EXTRAS ESC>,      <&httl L_EXTRAS L_EXTRAS>); //ESC       L_EXTRAS Toggle EXTRA  EXTRA
+        TAP_DANCE_2(slh_cursor, <&lt L_MOUSE FSLH>,      <&httl L_MOUSE L_MOUSE>);   //FSLH      L_MOUSE  Toggle MOUSE MOUSE
+        TAP_DANCE_2(bs_sym_num, <&lt L_NUM   BACKSPACE>, <&mo   L_SYM>);             //BACKSPACE L_NUM    2tap-hold SYM
+        TAP_DANCE_2(jp_alt,     <&hm LEFT_ALT D_KANA>,   <&kp   F13>);               //D_KANA    ALT      F13
+        TAP_DANCE_2(en_gui,     <&hm LEFT_GUI D_EN>,     <&kp   F14>);               //D_EN      GUI      F14
         // TAP_DANCE_2(space_num,  <&lt L_NUM    SPACE>,  <&httl 1 1>); //SPACE  L_NUM    Toggle L-NUM  L-NUM
-        // TAP_DANCE_2(en_gui2,    <&hm LEFT_GUI D_EN>,   <&httl 2 2>); //LANG2  D_EN     Toggle L-FUNC L-FUNC
 
     };
 };
@@ -425,8 +425,8 @@
               &hm LCTRL TAB  &kp A  &kp S  &kp D  &lt L_FUNC F   &kp G       &kp H  &kp J  &kp K      &kp L       &kp SEMICOLON  &kp APOSTROPHE
               &kp LEFT_SHIFT &kp Z  &kp X  &kp C  &kp V          &kp B       &kp N  &kp M  &kp COMMA  &kp PERIOD  &kp FSLH       &lt L_WORK GRAVE
 
-              &hm LEFT_ALT D_KANA     &lt L_NUM   SPACE  &hm LEFT_GUI D_EN
-              &lt L_SYM BACKSPACE     &lt L_MEDIA ENTER 
+              &jp_alt              &lt L_NUM   SPACE  &en_gui
+              &lt L_SYM BACKSPACE  &lt L_MEDIA ENTER 
             >;
         };
                                 //  &jp_alt4  &space_num  &en_gui2    &lt 3 BACKSPACE &lt 5 ENTER 
