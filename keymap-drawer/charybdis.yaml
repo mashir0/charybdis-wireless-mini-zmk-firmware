@@ -37,9 +37,9 @@ layers:
   - .
   - /
   - {t: '`', h: WORKSPACE}
-  - {t: LANG1, h: LEFT ALT}
+  - '&jp_alt'
   - {t: SPACE, h: NUM}
-  - {t: LANG2, h: LEFT GUI}
+  - '&en_gui'
   - {t: BACK SPACE, h: SYM}
   - {t: ENTER, h: MEDIA}
   NUM:
