@@ -93,8 +93,8 @@
         WRAP_PAIR_MACRO(paren_pad_macro, LEFT_PARENTHESIS, RIGHT_PARENTHESIS) // ()
         WRAP_PAIR_MACRO(bracket_macro,   LEFT_BRACKET,     RIGHT_BRACKET)     // []
         WRAP_PAIR_MACRO(brace_macro,     LEFT_BRACE,       RIGHT_BRACE)       // {}
-        WRAP_PAIR_MACRO(brace_sqt,       SINGLE_QUOTE,     SINGLE_QUOTE)      // ''
-        WRAP_PAIR_MACRO(brace_dqt,       DOUBLE_QUOTE,     DOUBLE_QUOTE)      // ""
+        WRAP_PAIR_MACRO(brace_sqt,       APOSTROPHE,       APOSTROPHE)        // ''
+        WRAP_PAIR_MACRO(brace_dqt,       DQT,              DQT)               // ""
 
         // ホームディレクトリパス: "~/"（ファイルパス入力用）
         home_macro: home_macro {
@@ -224,8 +224,8 @@
         TAP_DANCE(td_paren_pad, <&kp LEFT_PARENTHESIS>, <&paren_pad_macro>);
         TAP_DANCE(td_bracket,   <&kp LEFT_BRACKET>,     <&bracket_macro>);
         TAP_DANCE(td_brace,     <&kp LEFT_BRACE>,       <&brace_macro>);
-        TAP_DANCE(td_sqt,       <&kp SINGLE_QUOTE>,     <&brace_sqt>);
-        TAP_DANCE(td_dqt,       <&kp DOUBLE_QUOTE>,     <&brace_dqt>);
+        TAP_DANCE(td_sqt,       <&kp APOSTROPHE>,       <&brace_sqt>);
+        TAP_DANCE(td_dqt,       <&kp DQT>,              <&brace_dqt>);
 
         TAP_DANCE(esc_base,   <&lt L_EXTRAS ESC>,      <&httl L_EXTRAS L_EXTRAS>); //ESC       L_EXTRAS Toggle EXTRA  EXTRA
         TAP_DANCE(slh_cursor, <&lt L_MOUSE FSLH>,      <&httl L_MOUSE L_MOUSE>);   //FSLH      L_MOUSE  Toggle MOUSE MOUSE
