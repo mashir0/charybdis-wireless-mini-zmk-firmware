@@ -216,7 +216,7 @@
         /*-------------------------------------------------------
         * tap-dance
         -------------------------------------------------------*/
-        TAP_DANCE(td_minus,<&kp MINUS>,<&minus_macro>); 
+        TAP_DANCE(td_minus, <&kp MINUS>,<&minus_macro>); 
         TAP_DANCE(td_equal, <&kp EQUAL>,<&equals_macro>);
         TAP_DANCE(td_plus,  <&kp PLUS>,  <&plus_macro>);
         TAP_DANCE(td_colon, <&kp COLON>,<&plus_colon>);
@@ -227,11 +227,9 @@
         TAP_DANCE(td_sqt,       <&kp APOSTROPHE>,       <&brace_sqt>);
         TAP_DANCE(td_dqt,       <&kp DQT>,              <&brace_dqt>);
 
-        TAP_DANCE(esc_base,   <&lt L_EXTRAS ESC>,      <&httl L_EXTRAS L_EXTRAS>); //ESC       L_EXTRAS Toggle EXTRA  EXTRA
-        TAP_DANCE(slh_cursor, <&lt L_MOUSE FSLH>,      <&httl L_MOUSE L_MOUSE>);   //FSLH      L_MOUSE  Toggle MOUSE MOUSE
-        TAP_DANCE(bs_sym_num, <&lt L_NUM   BACKSPACE>, <&mo   L_SYM>);             //BACKSPACE L_NUM    2tap-hold SYM
-
-
+        // TAP_DANCE(esc_base,     <&lt L_EXTRAS ESC>,     <&kp ESC>); //ESC       hold: L_EXTRAS (momentary), 2tap: ESC
+        // TAP_DANCE(slh_cursor, <&lt L_MOUSE FSLH>,      <&httl L_MOUSE L_MOUSE>);   //FSLH      L_MOUSE  Toggle MOUSE MOUSE
+        // TAP_DANCE(bs_sym_num, <&lt L_NUM   BACKSPACE>, <&mo   L_SYM>);             //BACKSPACE L_NUM    2tap-hold SYM
     };
 };
 
@@ -334,9 +332,9 @@
 
         BASE {
             bindings = <
-              &esc_base      &kp Q  &kp W  &kp E  &kp R          &kp T       &kp Y  &kp U  &kp I      &kp O       &kp P          &kp MINUS
-              &hm LCTRL TAB  &kp A  &kp S  &kp D  &lt L_FUNC F   &kp G       &kp H  &kp J  &kp K      &kp L       &kp SEMICOLON  &kp APOSTROPHE
-              &kp LEFT_SHIFT &kp Z  &kp X  &kp C  &kp V          &kp B       &kp N  &kp M  &kp COMMA  &kp PERIOD  &kp FSLH       &lt L_WORK GRAVE
+              &lt L_EXTRAS ESC &kp Q  &kp W  &kp E  &kp R          &kp T       &kp Y  &kp U  &kp I      &kp O       &kp P          &kp MINUS
+              &hm LCTRL TAB    &kp A  &kp S  &kp D  &lt L_FUNC F   &kp G       &kp H  &kp J  &kp K      &kp L       &kp SEMICOLON  &kp APOSTROPHE
+              &kp LEFT_SHIFT   &kp Z  &kp X  &kp C  &kp V          &kp B       &kp N  &kp M  &kp COMMA  &kp PERIOD  &kp FSLH       &lt L_WORK GRAVE
 
               &hm LALT  D_KANA     &lt L_NUM SPACE    &hm LGUI D_EN 
               &lt L_SYM BACKSPACE  &lt L_MEDIA ENTER 
@@ -380,7 +378,7 @@
             bindings = <
               &trans  &none  &none  &none  &none  &none     &none         &none        &none      &none          &kp LG(LEFT_BRACKET) &kp LG(RIGHT_BRACKET)
               &trans  &none  &none  &none  &none  &none     &kp RC(LEFT)  &kp RC(DOWN) &kp RC(UP) &kp RC(RIGHT)  &kp RS(LEFT_BRACKET) &kp RS(RIGHT_BRACKET)
-              &trans  &none  &none  &none  &none  &none     &none         &none        &kp RC(AT) &none          &none                &none
+              &trans  &none  &none  &none  &none  &td_minus &none         &kp RC(AT) &none          &none                &none
               
               &trans  &trans  &trans 
               &trans  &trans
@@ -400,7 +398,7 @@
 
         EXTRAS {
             bindings = <
-              &kp C_POWER      &none  &none  &none  &out OUT_BLE  &out OUT_USB    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &out OUT_TOG  &bt BT_CLR
+              &to L_BASE       &none  &none  &none  &out OUT_BLE  &out OUT_USB    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &out OUT_TOG  &bt BT_CLR
               &kp C_SLEEP      &none  &none  &none  &none         &none           &none         &none         &none         &none         &none         &none
               &kp C_AL_COFFEE  &none  &none  &none  &none         &bootloader     &bootloader   &none         &none         &none         &none         &studio_unlock
               &none  &none  &none

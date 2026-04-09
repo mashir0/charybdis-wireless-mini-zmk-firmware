@@ -35,6 +35,7 @@ jobs:
       contents: write
     uses: ./.github/workflows/draw_keymaps.yaml
     with:
+      amend_commit: false
       commit_message: |
         🔧SVG図更新 : ${{ github.event.head_commit.message }}
     # credit to https://github.com/caksoylar/keymap-drawer
