@@ -401,7 +401,7 @@
         EXTRAS {
             bindings = <
               &kp C_POWER      &none  &none  &none  &out OUT_BLE  &out OUT_USB    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &out OUT_TOG  &bt BT_CLR
-              &kp C_SLEEP      &sudo  &none  &none  &none         &none           &none         &none         &none         &none         &none         &none
+              &kp C_SLEEP      &none  &none  &none  &none         &none           &none         &none         &none         &none         &none         &none
               &kp C_AL_COFFEE  &none  &none  &none  &none         &bootloader     &bootloader   &none         &none         &none         &none         &studio_unlock
               &none  &none  &none
               &none  &none
