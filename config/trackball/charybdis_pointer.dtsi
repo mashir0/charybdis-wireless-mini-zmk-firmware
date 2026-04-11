@@ -2,22 +2,28 @@
 #include <dt-bindings/zmk/input_transform.h>
 
 &trackball_listener {
-    /* base processor chain on all layers */
-    input-processors = <&zip_xy_scaler 5 5>;
+    /*
+     * Base: pointer scaling + auto mouse layer (AML) via zip_temp_layer.
+     * Layer L_MOUSE (7), timeout 5000 ms — see custom_qwerty.keymap &zip_temp_layer props.
+     */
+    input-processors = <
+        &zip_xy_scaler 5 5
+        &zip_temp_layer 7 5000
+    >;
 
-    /* layer-8 scroll override */
+    /* L_SCROLL (9): XY → scroll (Input Processor chain; legacy used layer 9) */
     scroller: scroller {
-        layers           = <7>;
+        layers           = <9>;
         input-processors = <
             &zip_xy_scaler 1 15                              // Scales the scroll speed
             &zip_xy_to_scroll_mapper                         // Converts XY movement to scroll events
-            &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT) // Inverts the scroll direction
+            &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT) // Horizontal scroll invert; add |INPUT_TRANSFORM_Y_INVERT for vertical
         >;
     };
 
-    /* layer-7 slow-pointer override */
+    /* L_SLOW (8): slow pointer */
     slow_pointer: slow_pointer {
-        layers           = <6>;
+        layers           = <8>;
         input-processors = <&zip_xy_scaler 2 6>;
     };
 };

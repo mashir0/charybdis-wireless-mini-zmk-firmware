@@ -9,3 +9,4 @@ scripts/__pycache__
 local-build/jq
 local-build/yq
 notes
+**/.DS_Store
