@@ -28,39 +28,29 @@ Download your choice of firmware from the Releases page. Choose a combination of
 
 ### Overview & Usage
 
-![keymap base](keymap-drawer/base/qwerty.svg)
+![keymap base](keymap-drawer/base/custom_qwerty.svg)
 
-To see all the layers check out the [full render](keymap-drawer/qwerty.svg).
+To see all the layers check out the [full render](keymap-drawer/custom_qwerty.svg). Regenerate from [`config/keymaps/custom_qwerty.keymap`](config/keymaps/custom_qwerty.keymap) using [keymap-drawer/README.md](keymap-drawer/README.md).
 
-**Keyboard Layers**
-| # | Layer      | Purpose                                                          |
-| - | ---------- | ---------------------------------------------------------------- |
-| 0 | **BASE**   | Standard typing with timeless home-row mods                      |
-| 1 | **NUM**    | Combined digits + F-keys (tap for numbers, hold for functions)   |
-| 2 | **NAV**    | Arrow keys, paging, TMUX navigation, mouse pointer               |
-| 3 | **SYM**    | Symbols, punctuation, and a couple of helpers                    |
-| 4 | **GAME**   | Gaming layer (just key-codes, no mods)                           |
-| 5 | **EXTRAS** | Shortcuts, functions & snippets                                  |
-| 6 | **MOUSE**  | Full mouse-key layer (pointer + wheel)                           |
-| 7 | **SLOW**   | Low-speed pointer for pixel-perfect work                         |
-| 8 | **SCROLL** | Vertical/Horizontal scroll layer                                 |
+**Keyboard Layers** (`custom_qwerty`)
+| # | Layer        | Purpose                                                          |
+| - | ------------ | ---------------------------------------------------------------- |
+| 0 | **BASE**     | Typing; `hm` on Tab; thumb layers for Num / Sym / Media / Extras |
+| 1 | **NUM**      | Numpad-style digits and operators                                |
+| 2 | **FUNCTION** | Home / arrows / F-keys                                           |
+| 3 | **SYM**      | Symbols and punctuation                                        |
+| 4 | **WORKSPACE**| Window / desktop shortcuts (`LG`, `RC`, etc.)                  |
+| 5 | **MEDIA**    | Media and arrows                                                 |
+| 6 | **EXTRAS**   | BLE/USB, sleep, bootloader, ZMK Studio                           |
+| 7 | **MOUSE**    | Clicks + `td_cursor` (scroll/slow)                               |
+| 8 | **SLOW**     | Low-speed pointer (trackball input processors)                   |
+| 9 | **SCROLL**   | XY → scroll via [`charybdis_pointer.dtsi`](config/trackball/charybdis_pointer.dtsi) |
 
-**Home-Row Mods**
-| Side                | Hold = Modifier              | Tap = Letter / Key  |
-| ------------------- | ---------------------------- | ------------------- |
-| Left                | **Gui / Alt / Shift / Ctrl** | `A S D F`           |
-| Right               | **Ctrl / Shift / Alt / Gui** | `J K L ;`           |
-
-
-**Combos**
-| Trigger Keys              | Result                                 |
-| ------------------------- | -------------------------------------- |
-| `K17 + K18`               | **Caps Word** (one-shot words in CAPS) |
-| `K25 + K26`               | **Left Click**                         |
-| `K26 + K27`               | **Middle Click**                       |
-| `K27 + K28`               | **Right Click**                        |
-| `K13 + K22`               | Toggle **MOUSE** layer                 |
-| `K38 + K39` (thumb cluster)| Layer-swap **BASE / EXTRAS**           |
+**Combos** (`custom_qwerty`)
+| Trigger Keys | Result |
+| ------------ | ------ |
+| `K17 + K18` (BASE) | **Caps Word** |
+| `K31 + K32` (MOUSE) | **Middle click** |
 
 
 **Other Highlights**
